@@ -1,7 +1,5 @@
-inst(die).
 inst(quit).
 inst(help).
-inst(look).
 inst(w).
 inst(s).
 inst(d).
@@ -27,7 +25,7 @@ start:-
 	start_commands, nl,
 	help, nl, nl,
 	repeat,
-	write('>'),
+	write('> '),
 	read(Ins),
 	user_in(Ins),nl,
 	Ins = quit.
