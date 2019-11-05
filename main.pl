@@ -1,8 +1,10 @@
-:- dynamic(di/3, 
-		letak_player/2, 
-		player/3, 
-		pinventory/2, 
-		checkStart/1).
+:- dynamic(letak_item/3, 
+		letak_player/2,
+		list_monsta/1,
+		monsta_owned/3, 
+		player_bag/1, 
+		checkStart/1,
+		letak_item/3).
 
 
 /*Importing other files*/
@@ -29,56 +31,69 @@
 %% Initialize the start game state
 checkStart(0).
 
-%% :- initialization(write('Write "load_game(''filename.pl'')" to load previous saved game!')).
-
-/* Check if the game has started or not*/
-
-
 /* Player starting position */
-%% letak_player(1,1).
+%% player current position, initial : (11,3)
+letak_player(11,3).
 
-%% /* Map size */
-%% edge([0,11], [0,11]).
-%% edgeOffset([X1,X2],[Y1,Y2]):-
-%% 	edge([XEdge1, XEdge2], [YEdge1,YEdge2]),
-%% 	X1 is XEdge1 - 2, X2 is XEdge2+2,
-%% 	Y1 is YEdge1 - 2, Y2.
+/* Player Bags*/
+player_bag([]).
 
-/** Describe for START and LOOK **/
+%% gym location : (8,5)
+gym(8,5).
+
+/* Dummy Items */
+letak_item(panadol,10,10).
+letak_item(tikus_mati,11,11).
+letak_item(potion, 12,12).
+letak_item(antidote, 13,13).
+
+medicine(potion).
+medicine(antidote).
+
+keyitems(tikus_mati).
+keyitems(panadol).
+
+/* Map size */
+edge([1,13], [1,13]).
+edgeOffset([X1,X2],[Y1,Y2]):-
+	edge([XEdge1, XEdge2], [YEdge1,YEdge2]),
+	X1 is XEdge1 - 2, X2 is XEdge2+2,
+	Y1 is YEdge1 - 2, Y2.
 
 /***** PLAYER'S Tokeomon ALIVE/DEATH STATE *****/
 
 
 /* Game over */
-%% die :- 
-%% 	write('The tokemon eats your leg'), nl,
-%% 	write('You suddenly lost your feel in your chest'), nl,
-%% 	write('You take your last breath'), nl,
-%% 	write('You DIED - Game Over'),nl,
-%% 	quit, abort.
+die :- 
+	write('The monsta eats your leg'), nl,
+	write('You suddenly lost your feel in your chest'), nl,
+	write('You take your last breath'), nl,
+	write('You DIED - Game Over'),nl,
+	write('Then you realized that you are in a dream'),nl,
+	quit, abort.
 
-%% /* Win Games - catch 2 legendary*/
-%% win2 :- 
-%% 	nl,
-%% 	write('You have collected 2 most powerful tokemon in the whole universe'), nl,
-%% 	write('But, then you realized that all tokemon is actually really good'),nl,
-%% 	write('You were manipulated by the evil professor to capture all this good creature'),nl,
-%% 	write('Using those 2 legendary tokemon, you destroy the professor and all his creation'), nl,
-%% 	write('From now on, you will protect the safety of all tokemon'), nl,
-%% 	write('THE END'),
-%% 	retract(checkStart(1)),
-%% 	asserta(checkStart(0)),
-%% 	abort.
+/* Win Games - catch 2 legendary*/
+win :- 
+	nl,
+	write('You have collected 2 most powerful tokemon in the whole universe'), nl,
+	write('But, then you realized that all tokemon is actually really good'),nl,
+	write('You were manipulated by the evil professor to capture all this good creature'),nl,
+	write('Using those 2 legendary tokemon, you destroy the professor and all his creation'), nl,
+	write('From now on, you will protect the safety of all tokemon'), nl,
+	write('THE END'),
+	retract(checkStart(1)),
+	asserta(checkStart(0)),
+	abort.
 
 /* Quitting games*/
 quit:-
 	checkStart(1),
 	retract(checkStart(1)),
 	asserta(checkStart(0)),
-	write('You have quitted from the tokemon great world.'),nl,
+	write('You have quitted from the monsta great world.'),nl,
 	write('Welcome to the normal world again'), nl.
 quit:- 
-	write("You haven't started the game yet"),nl.
+	write('Game belum dimulai. Ketik "start." untuk memulai game.'),nl.
 
 
 

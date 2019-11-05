@@ -13,6 +13,7 @@ inst(drop_monsta(_)).
 inst(use(_)).
 inst(attack).
 inst(status).
+ins(bag).
 %% inst(save_game(_)).
 
 /* Start Game Function */
@@ -43,7 +44,7 @@ user_in(X):-
 
 /* Prosedur Pemanggilan Menu Utama Games */
 start_commands:-
-	write('Monsta'),nl,
+	write('MonstaWorld'),nl,
 	write('Welcome to this monster battling games'),nl,
 	write('This is an adventure game, writen in prolog programming languange.'),nl,
 	write('The purpose of this game is to kill the 2 legendary Monsta and get your memory back!'),nl.
@@ -59,7 +60,7 @@ help :-
 	write(' pick(item).                 : untuk mengambil items yang ada di lantai posisi pemain'),nl,
 	write(' drop(item).                 : untuk melakukan drop items'),nl,
 	write(' use(item).                  : untuk memakai item yang ada di inventory'),nl,
-	write(' inventory.                  : untuk melihat isi inventory pemain'),nl,
+	write(' bag.                        : untuk melihat isi inventory/bag pemain'),nl,
 	write(' status(monsta).             : untuk melihat status monsta yang dimiliki pemain'),nl,
 	nl,nl,
 	write('Legends:'), nl,
