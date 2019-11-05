@@ -8,24 +8,17 @@
 
 
 /*Importing other files*/
-:- include(command).
 :- include(tokemon).
 :- include(map).
-:- include(list).
 :- include(inventory).
 :- include(status).
-:- include(start).
-:- include(use).
 :- include(random).
-:- include(text).
-:- include(skill).
-:- include(modifier).
-:- include(fail).
 :- include(gym).
-:- include(goal).
+:- include(start).
+:- include(battle).
 
 :- initialization(nl).
-:- initialization(write('Write "start." to start the game!')).
+:- initialization(write('Type "start." to start the game!')).
 :- initialization(nl).
 
 %% Initialize the start game state
@@ -36,7 +29,6 @@ checkStart(0).
 letak_player(11,3).
 
 /* Player Bags*/
-player_bag([]).
 
 %% gym location : (8,5)
 gym(8,5).

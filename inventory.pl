@@ -3,7 +3,7 @@
 
 /* Counting Items */
 %% Basis
-countBag(_,X):- checkStart(1),!.
+countBag(_,_):- checkStart(1),!.
 countBag([],0).
 %% Rekurens
 countBag([_|T],X):-
@@ -102,7 +102,7 @@ pick(_):-
 pick(_):-
 	player_bag(Bag),
 	countBag(Bag, X),
-	X > 10,
+	write(X),
 	write('Bag penuh!.'),nl,
 	!.
 %% Jika bag belum penuh

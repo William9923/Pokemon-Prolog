@@ -15,5 +15,21 @@ randomPercentage(X,Bool):-
 	Bool = yes,!.
 randomPercentage(X,Bool):- Bool = no.
 
+lists([a,b,c,d,e,f,g]).
+
+%% Basis
+count([],0).
+%% Rekurens
+count([_|T],X):- 
+	count(T,X1),
+	X is X1+1.
+
+tes:- 
+	count(lists,X),
+	X > 10,
+	write(X),!.
+tes:-
+	write('no').
+
 
 
