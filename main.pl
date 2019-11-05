@@ -4,7 +4,8 @@
 		monsta_owned/3, 
 		player_bag/1, 
 		checkStart/1,
-		letak_item/3).
+		letak_item/3,
+		coordinate/2).
 
 
 /*Importing other files*/
@@ -16,6 +17,7 @@
 :- include(gym).
 :- include(start).
 :- include(battle).
+:- include(move).
 
 :- initialization(nl).
 :- initialization(write('Type "start." to start the game!')).
@@ -26,7 +28,7 @@ checkStart(0).
 
 /* Player starting position */
 %% player current position, initial : (11,3)
-letak_player(11,3).
+letak_player(10,10).
 
 /* Player Bags*/
 
@@ -51,6 +53,135 @@ keyitems(panadol).
 player_bag([panadol, manisan, asinan]).
 
 /* Map size */
+edge([1,11],[1,11]). %Map size;
+edgeOffset([X1,X2],[Y1,Y2]) :- 
+	edge([XEdge1,XEdge2],[YEdge1,YEdge2]),
+	X1 is XEdge1-1, X2 is XEdge2+1,
+	Y1 is YEdge1-1, Y2 is YEdge2+1.
+
+/*****************************************/
+/*Initializing an initial map condition*/
+terrain(forest,1,1).
+terrain(forest,2,1).
+terrain(forest,3,1).
+terrain(forest,4,1).
+terrain(wasteland,5,1).
+terrain(wasteland,6,1).
+terrain(wasteland,7,1).
+terrain(wasteland,8,1).
+terrain(wasteland,9,1).
+terrain(wasteland,10,1).
+terrain(wasteland,11,1).
+terrain(river,1,2).
+terrain(river,2,2).
+terrain(river,3,2).
+terrain(grassland,4,2).
+terrain(river,5,2).
+terrain(wasteland,6,2).
+terrain(wasteland,7,2).
+terrain(desert,8,2).
+terrain(desert,9,2).
+terrain(desert,10,2).
+terrain(wasteland,11,2).
+terrain(forest,1,3).
+terrain(forest,2,3).
+terrain(forest,3,3).
+terrain(forest,4,3).
+terrain(river,5,3).
+terrain(wasteland,6,3).
+terrain(wasteland,7,3).
+terrain(desert,8,3).
+terrain(desert,9,3).
+terrain(desert,10,3).
+terrain(wasteland,11,3).
+terrain(forest,1,4).
+terrain(forest,2,4).
+terrain(forest,3,4).
+terrain(forest,4,4).
+terrain(river,5,4).
+terrain(wasteland,6,4).
+terrain(block,7,4).
+terrain(desert,8,4).
+terrain(desert,9,4).
+terrain(desert,10,4).
+terrain(wasteland,11,4).
+terrain(forest,1,5).
+terrain(forest,2,5).
+terrain(forest,3,5).
+terrain(forest,4,5).
+terrain(river,5,5).
+terrain(wasteland,6,5).
+terrain(wasteland,7,5).
+terrain(wasteland,8,5).
+terrain(wasteland,9,5).
+terrain(wasteland,10,5).
+terrain(wasteland,11,5).
+terrain(forest,1,6).
+terrain(forest,2,6).
+terrain(forest,3,6).
+terrain(forest,4,6).
+terrain(river,5,6).
+terrain(river,6,6).
+terrain(river,7,6).
+terrain(grassland,8,6).
+terrain(grassland,9,6).
+terrain(wasteland,10,6).
+terrain(wasteland,11,6).
+terrain(forest,1,7).
+terrain(forest,2,7).
+terrain(forest,3,7).
+terrain(forest,4,7).
+terrain(river,5,7).
+terrain(river,6,7).
+terrain(river,7,7).
+terrain(grassland,8,7).
+terrain(grassland,9,7).
+terrain(wasteland,10,7).
+terrain(wasteland,11,7).
+terrain(forest,1,8).
+terrain(forest,2,8).
+terrain(forest,3,8).
+terrain(forest,4,8).
+terrain(grassland,5,8).
+terrain(grassland,6,8).
+terrain(gym,7,8).
+terrain(grassland,8,8).
+terrain(grassland,9,8).
+terrain(grassland,10,8).
+terrain(grassland,11,8).
+terrain(mountain,1,9).
+terrain(mountain,2,9).
+terrain(mountain,3,9).
+terrain(mountain,4,9).
+terrain(river,5,9).
+terrain(river,6,9).
+terrain(river,7,9).
+terrain(grassland,8,9).
+terrain(grassland,9,9).
+terrain(grassland,10,9).
+terrain(grassland,11,9).
+terrain(lava,1,10).
+terrain(lava,2,10).
+terrain(mountain,3,10).
+terrain(mountain,4,10).
+terrain(mountain,5,10).
+terrain(mountain,6,10).
+terrain(mountain,7,10).
+terrain(mountain,8,10).
+terrain(grassland,9,10).
+terrain(home,10,10).
+terrain(grassland,11,10).
+terrain(lava,1,11).
+terrain(lava,2,11).
+terrain(lava,3,11).
+terrain(mountain,4,11).
+terrain(mountain,5,11).
+terrain(mountain,6,11).
+terrain(mountain,7,11).
+terrain(mountain,8,11).
+terrain(grassland,9,11).
+terrain(grassland,10,11).
+terrain(grassland,11,11).
 
 /***** PLAYER'S Tokeomon ALIVE/DEATH STATE *****/
 
