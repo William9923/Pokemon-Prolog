@@ -3,6 +3,7 @@
 
 /* Counting Items */
 %% Basis
+countBag(_,X):- checkStart(1),!.
 countBag([],0).
 %% Rekurens
 countBag([_|T],X):-
@@ -11,6 +12,7 @@ countBag([_|T],X):-
 
 /* Searching Bag */
 %% basis 
+searchBag(_,_,_):- checkStart(1),!.
 searchBag(_, [], B):-
 	B = no, !.
 
@@ -24,6 +26,7 @@ searchBag(X, [_|T], B):-
 	B = Btemp.
 
 /* Menambahkan barang ke bag */
+addBag(_) :- checkStart(1),!.
 addBag(Item):-
 	player_bag(L),
 	append([Item], L, LNew),
@@ -114,6 +117,9 @@ pick(I):-
 pick(_):-
 	write('Tidak ada item yang bisa diambil disini.'),
 	nl. 
+
+/* Items Usage */
+
 
 
 
