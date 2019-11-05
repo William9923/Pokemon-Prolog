@@ -13,7 +13,7 @@ inst(drop_monsta(_)).
 inst(use(_)).
 inst(attack).
 inst(status).
-ins(bag).
+inst(bag).
 %% inst(save_game(_)).
 
 /* Start Game Function */
@@ -27,6 +27,7 @@ start:-
 	start_commands, nl,
 	help, nl, nl,
 	repeat,
+	write('>'),
 	read(Ins),
 	user_in(Ins),nl,
 	Ins = quit.

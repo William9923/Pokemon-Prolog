@@ -1,10 +1,11 @@
 /* Bag - List of items that player has */
 
+
 /* Counting Items */
 %% Basis
 countBag([],0).
 %% Rekurens
-countBag([H|T],X):-
+countBag([_|T],X):-
 	countBag(T,X1),
 	X is X1 + 1.
 
@@ -18,7 +19,7 @@ searchBag(_, [], B):-
 searchBag(H, [H|_], B):-
 	B = yes, !.
 %% apabila belum ditemukan
-searchBag(X, [H|T], B):-
+searchBag(X, [_|T], B):-
 	searchBag(X, T, Btemp),
 	B = Btemp.
 
@@ -68,6 +69,7 @@ drop(_):-
 %% drop keyitems
 drop(I):- 
 	player_bag(Bag),
+	searchBag(I,Bag,yes),
 	keyitems(I),
 	write('Professor muncul dari bayanganku!!!'),nl,
 	write('Janganlah membuang item ini.'),nl,
@@ -78,7 +80,7 @@ drop(I):-
 	player_bag(Bag),
 	searchBag(I,Bag,yes),
 	letak_player(X,Y),
-	delItem(I)
+	delItem(I),
 	asserta(letak_item(I,X,Y)),
 	format('Kamu menjatuhkan ~a.',[I]),
 	nl, !.
@@ -94,7 +96,7 @@ pick(_):-
 	write('Game belum dimulai. Ketik "start." untuk memulai game.'),nl,!.
 %% buat yang ngecek jumlah items
 %% Jika bag penuh
-pick(I):-
+pick(_):-
 	player_bag(Bag),
 	countBag(Bag, X),
 	X > 10,

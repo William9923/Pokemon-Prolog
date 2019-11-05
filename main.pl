@@ -53,12 +53,12 @@ medicine(antidote).
 keyitems(tikus_mati).
 keyitems(panadol).
 
+/* Bag Items */
+%% player_bag([]).
+%% Dummy Bag Items
+player_bag([panadol, manisan, asinan]).
+
 /* Map size */
-edge([1,13], [1,13]).
-edgeOffset([X1,X2],[Y1,Y2]):-
-	edge([XEdge1, XEdge2], [YEdge1,YEdge2]),
-	X1 is XEdge1 - 2, X2 is XEdge2+2,
-	Y1 is YEdge1 - 2, Y2.
 
 /***** PLAYER'S Tokeomon ALIVE/DEATH STATE *****/
 
