@@ -94,6 +94,14 @@ monsta_special_attack_name('Salamandermon', 'Inferno Fairy').
 monsta_speed('Salamandermon', 60).
 monsta_affinity_type('Salamandermon', fire).
 
+monsta('Legendary CrimsonDragonmon').
+monsta_health('Legendary CrimsonDragonmon', 120).
+monsta_attack('Legendary CrimsonDragonmon', 120).
+monsta_defense('Legendary CrimsonDragonmon', 40).
+monsta_special_attack_name('Legendary CrimsonDragonmon', 'Legendary Eruption').
+monsta_special_attack('Legendary CrimsonDragonmon', 80).
+monsta_speed('Legendary CrimsonDragonmon', 60).
+monsta_affinity_type('Legendary CrimsonDragonmon', fire).
 
 
 
@@ -139,3 +147,11 @@ monsta_special_attack('Undinemon', 140).
 monsta_special_attack_name('Undinemon', 'Whirlpool Fairy').
 monsta_speed('Undinemon', 60).
 
+monsta('Legendary AzureSharkmon').
+monsta_health('Legendary AzureSharkmon', 40).
+monsta_attack('Legendary AzureSharkmon', 80).
+monsta_defense('Legendary AzureSharkmon', 80).
+monsta_special_attack_name('Legendary AzureSharkmon', 'Legendary Tsunami').
+monsta_special_attack('Legendary AzureSharkmon', 160).
+monsta_speed('Legendary AzureSharkmon', 60).
+monsta_affinity_type('Legendary AzureSharkmon', water).
