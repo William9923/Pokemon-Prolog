@@ -19,6 +19,7 @@
 :- include(battle).
 :- include(move).
 
+
 :- initialization(nl).
 :- initialization(write('Type "start." to start the game!')).
 :- initialization(nl).

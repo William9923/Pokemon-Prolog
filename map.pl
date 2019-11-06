@@ -26,41 +26,39 @@ recPrintRadar(X,Y) :-
 	recPrintRadar(XMin,YMin).	
 /************************************/
 /** For printing MAP **/
-
-
+printOneTile(X,Y) :-    % home
+    terrain(home,X,Y),
+    write('H'), !.
+printOneTile(X,Y) :-    % gym
+    terrain(gym,X,Y),
+    write('g'), !.
+printOneTile(X,Y) :-    % block
+    terrain(block,X,Y),
+    write('O'), !.
 printOneTile(X,Y) :-    % player
     letak_player(X,Y),
     write('P'), !.
 printOneTile(X,Y) :-    % forest
     terrain(forest,X,Y),
-    write('F'), !.
+    write('-'), !.
 printOneTile(X,Y) :-    % wasteland
     terrain(wasteland,X,Y),
-    write('W'), !.
+    write('-'), !.
 printOneTile(X,Y) :-    % river
     terrain(river,X,Y),
     write('R'), !.
 printOneTile(X,Y) :-    % grassland
     terrain(grassland,X,Y),
-    write('G'), !.
+    write('-'), !.
 printOneTile(X,Y) :-    % desert
     terrain(desert,X,Y),
-    write('D'), !.
-printOneTile(X,Y) :-    % block
-    terrain(block,X,Y),
-    write('O'), !.
-printOneTile(X,Y) :-    % gym
-    terrain(gym,X,Y),
-    write('g'), !.
-printOneTile(X,Y) :-    % home
-    terrain(home,X,Y),
-    write('H'), !.
+    write('-'), !.
 printOneTile(X,Y) :-    % mountain
     terrain(mountain,X,Y),
-    write('M'), !.
+    write('-'), !.
 printOneTile(X,Y) :-    % lava
     terrain(lava,X,Y),
-    write('L'), !.
+    write('-'), !.
 printOneTile(_,_) :-	%inaccessible
     write('X').
 /***********************************/

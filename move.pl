@@ -22,7 +22,11 @@ w :- letak_player(X,Y),
 w :- letak_player(X,Y),
     retract(letak_player(X,Y)),
     Ynew is Y + 1,
-    asserta(letak_player(X,Ynew)),!.
+    asserta(letak_player(X,Ynew)),
+    write('Player berbelok ke atas'),nl,
+    map,nl,
+    randomencounter,
+    !.
 
 /* Moving down */
 s :-
@@ -47,7 +51,11 @@ s :- letak_player(X,Y),
 s :- letak_player(X,Y),
     retract(letak_player(X,Y)),
     Ynew is Y - 1,
-    asserta(letak_player(X,Ynew)), !.
+    asserta(letak_player(X,Ynew)), 
+    write('Player berbelok ke bawah'),nl,
+    map, nl,
+    randomencounter,
+    !.
 
 /* Moving right */
 d :-
@@ -73,7 +81,11 @@ d :- letak_player(X,Y),
 d :- letak_player(X,Y),
     retract(letak_player(X,Y)),
     Xnew is X + 1,
-    asserta(letak_player(Xnew,Y)),!.
+    asserta(letak_player(Xnew,Y)), 
+    write('Player berbelok ke kanan'),nl,
+    map, nl,
+    randomencounter,
+    !.
 
 /* Moving left */
 a :-
@@ -98,5 +110,9 @@ a :- letak_player(X,Y),
 a :- letak_player(X,Y),
     retract(letak_player(X,Y)),
     Xnew is X - 1,
-    asserta(letak_player(Xnew,Y)),!.
+    asserta(letak_player(Xnew,Y)), 
+    write('Player berbelok ke kiri'),nl,
+    map, nl,
+    randomencounter,
+    !.
 	
