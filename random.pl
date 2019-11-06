@@ -6,115 +6,141 @@ randomizer(Result) :-
 	letak_player(X,Y), 
 	Result < 64,
 	terrain(desert,X,Y),
-	write('You have encountered tokemondesert01.'),nl,!.
+	M = 'tokemondesert01',
+	battle(M),nl,!.
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 64,
 	Result < 128,
 	terrain(desert,X,Y),
-	write('You have encountered tokemondesert02.'),nl, !.
+	M = 'tokemondesert02',
+	battle(M),nl,!.
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 128,
 	Result < 192,
 	terrain(desert,X,Y),
-	write('You have encountered tokemondesert03.'),nl, !.
-
+	M = 'tokemondesert03',
+	battle(M),nl,!.
 /******************************************************/
 /*randomizer(Result) for forest*/
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result < 64,
 	terrain(forest,X,Y),
-	write('You have encountered tokemonforest01.'),nl,!.
+	M = 'tokemonforest01',
+	battle(M),nl,!.
+
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 64,
 	Result < 128,
 	terrain(forest,X,Y),
-	write('You have encountered tokemondforest02.'),nl, !.
+	M = 'tokemonforrest02',
+	battle(M),nl,!.
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 128,
 	Result < 192,
 	terrain(forest,X,Y),
-	write('You have encountered tokemondforest03.'),nl, !.
+	M = 'tokemonforrest03',
+	battle(M),nl,!.
 /******************************************************/
 /*randomizer(Result) for wasteland*/
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result < 64,
 	terrain(wasteland,X,Y),
-	write('You have encountered tokemonwasteland01.'),nl,!.
+	M = 'tokemonwasteland01',
+	battle(M),nl,!.
+
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 64,
 	Result < 128,
 	terrain(wasteland,X,Y),
-	write('You have encountered tokemondwasteland02.'),nl, !.
+	M = 'tokemonwasteland02',
+	battle(M),nl,!.
+
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 128,
 	Result < 192,
 	terrain(wasteland,X,Y),
-	write('You have encountered tokemondwasteland03.'),nl, !.
+	M = 'tokemonwasteland03',
+	battle(M),nl,!.
 /******************************************************/
 /*randomizer(Result) for grassland*/
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result < 64,
 	terrain(grassland,X,Y),
-	write('You have encountered tokemongrassland01.'),nl,!.
+	M = 'tokemonwasteland03',
+	battle(M),nl,!.
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 64,
 	Result < 128,
 	terrain(grassland,X,Y),
-	write('You have encountered tokemondgrassland02.'),nl, !.
+	M = 'tokemonwasteland03',
+	battle(M),nl,!.
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 128,
 	Result < 192,
 	terrain(grassland,X,Y),
-	write('You have encountered tokemondgrassland03.'),nl, !.
+	M = 'tokemonwasteland03',
+	battle(M),nl,!.
 /******************************************************/
 /*randomizer(Result) for mountain*/
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result < 64,
 	terrain(mountain,X,Y),
-	write('You have encountered tokemonmountain01.'),nl,!.
+	M = 'tokemonwasteland03',
+	battle(M),nl,!.
+
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 64,
 	Result < 128,
 	terrain(mountain,X,Y),
-	write('You have encountered tokemonmountain02.'),nl, !.
+	M = 'tokemonwasteland03',
+	battle(M),nl,!.
+
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 128,
 	Result < 192,
 	terrain(mountain,X,Y),
-	write('You have encountered tokemondountain03.'),nl, !.
+	M = 'tokemonwasteland03',
+	battle(M),nl,!.
+
 /******************************************************/
 /*randomizer(Result) for lava*/
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result < 64,
 	terrain(lava,X,Y),
-	write('You have encountered tokemonlava01.'),nl,!.
+	M = 'tokemonwasteland03',
+	battle(M),nl,!.
+
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 64,
 	Result < 128,
 	terrain(lava,X,Y),
-	write('You have encountered tokemonlava02.'),nl, !.
-randomizer(Result) :-
+	M = 'tokemonwasteland03',
+	battle(M),nl,!.
+
+andomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 128,
 	Result < 192,
 	terrain(lava,X,Y),
-	write('You have encountered tokemonlava03.'),nl, !.
+	M = 'tokemonwasteland03',
+	battle(M),nl,!.
+	
 /******************************************************/
 /*randomizer(Result) safely*/
 randomizer(Result) :-

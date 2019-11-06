@@ -8,7 +8,7 @@ monsta_special_attack_name('Dragonflymon', 'Dragon Swarm').
 monsta_special_attack('Dragonflymon', 40).
 monsta_special_attack_name('Dragonflymon', 'Dragon Swarm').
 monsta_speed('Dragonflymon', 100).
-monsta_affinity_type('Dragonflymon', grass).
+monsta_affinity_type('Dragonflymon', leaves).
 
 monsta('Falconmon').
 monsta_health('Falconmon', 60).
@@ -18,7 +18,7 @@ monsta_special_attack_name('Falconmon', 'Falcon Dive').
 monsta_special_attack('Falconmon', 60).
 monsta_special_attack_name('Falconmon', 'Falcon Dive').
 monsta_speed('Falconmon', 120).
-monsta_affinity_type('Falconmon', grass).
+monsta_affinity_type('Falconmon', leaves).
 
 monsta('GreatOwlmon').
 monsta_health('GreatOwlmon', 60).
@@ -28,7 +28,7 @@ monsta_special_attack_name('GreatOwlmon', 'Owl Screetch').
 monsta_special_attack('GreatOwlmon', 60).
 monsta_special_attack_name('GreatOwlmon', 'Owl Screetch').
 monsta_speed('GreatOwlmon', 60).
-monsta_affinity_type('GreatOwlmon', grass).
+monsta_affinity_type('GreatOwlmon', leaves).
 
 monsta('Slyphmon').
 monsta_health('Slyphmon', 60).
@@ -36,18 +36,18 @@ monsta_attack('Slyphmon', 40).
 monsta_defense('Slyphmon', 100).
 monsta_special_attack_name('Slyphmon', 'Whirlwind Fairy').
 monsta_special_attack('Slyphmon', 60).
-monsta_special_attack_name('Slyphmon', 'Whirlgrass Fairy').
+monsta_special_attack_name('Slyphmon', 'Whirlleaves Fairy').
 monsta_speed('Slyphmon', 100).
-monsta_affinity_type('Slyphmon', grass).
+monsta_affinity_type('Slyphmon', leaves).
 
-onsta('Legendary EmeraldHawkmon').
+monsta('Legendary EmeraldHawkmon').
 monsta_health('Legendary EmeraldHawkmon', 80).
 monsta_attack('Legendary EmeraldHawkmon', 40).
 monsta_defense('Legendary EmeraldHawkmon', 120).
 monsta_special_attack_name('Legendary EmeraldHawkmon', 'Legendary Cyclone').
 monsta_special_attack('Legendary EmeraldHawkmon', 80).
 monsta_speed('Legendary EmeraldHawkmon', 120).
-monsta_affinity_type('Legendary EmeraldHawkmon', grass).
+monsta_affinity_type('Legendary EmeraldHawkmon', leaves).
 
 
 

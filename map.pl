@@ -31,13 +31,16 @@ printOneTile(X,Y) :-    % home
     write('H'), !.
 printOneTile(X,Y) :-    % gym
     terrain(gym,X,Y),
-    write('g'), !.
+    write('G'), !.
 printOneTile(X,Y) :-    % block
     terrain(block,X,Y),
     write('O'), !.
 printOneTile(X,Y) :-    % player
     letak_player(X,Y),
     write('P'), !.
+printOneTile(X,Y) :-    % player
+    letak_item(_,X,Y),
+    write('I'), !.
 printOneTile(X,Y) :-    % forest
     terrain(forest,X,Y),
     write('-'), !.

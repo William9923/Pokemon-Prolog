@@ -1,15 +1,23 @@
 :- dynamic(letak_item/3, 
 		letak_player/2,
 		list_monsta/1,
-		monsta_owned/3, 
+		monsta_owned/1,
+		monsta_owned_health/2,
+		monsta_owned_attack/2,
+		monsta_owned_defense/2,
+		monsta_owned_special_attack/2,
+		monsta_owned_special_attack/2,
+		monsta_owned_speed/2,
+		monsta_owned_affinity_type/2,
 		player_bag/1, 
 		checkStart/1,
-		letak_item/3,
-		coordinate/2).
+		checkGym/1,
+		letak_item/3
+		).
 
 
 /*Importing other files*/
-:- include(tokemon).
+:- include(monsta).
 :- include(map).
 :- include(inventory).
 :- include(status).
@@ -26,26 +34,32 @@
 
 %% Initialize the start game state
 checkStart(0).
+checkGym(0).
 
 /* Player starting position */
 %% player current position, initial : (11,3)
 letak_player(10,10).
 
-/* Player Bags*/
+/* Player Monsta*/
+list_monsta(['Dragonflymon']).
+monsta_owned('Dragonflymon').
+monsta_owned_health('Dragonflymon',60).
+monsta_owned_attack('Dragonflymon', 40).
+monsta_owned_defense('Dragonflymon', 100).
+monsta_owned_special_attack_name('Dragonflymon', 'Dragon Swarm').
+monsta_owned_special_attack('Dragonflymon', 40).
+monsta_owned_special_attack_name('Dragonflymon', 'Dragon Swarm').
+monsta_owned_speed('Dragonflymon', 100).
+monsta_owned_affinity_type('Dragonflymon', leaves).
 
 %% gym location : (8,5)
 gym(8,5).
 
 /* Dummy Items */
-letak_item(panadol,10,10).
-letak_item(tikus_mati,11,11).
-letak_item(potion, 12,12).
-letak_item(antidote, 13,13).
+letak_item(panadol, 3 ,3).
+letak_item(minimap, 5,5).
 
-medicine(potion).
-medicine(antidote).
-
-keyitems(tikus_mati).
+keyitems(minimap).
 keyitems(panadol).
 
 /* Bag Items */

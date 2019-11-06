@@ -94,19 +94,19 @@ drop(_):-
 
 /* Picking items - Picking items in the ground */
 %% Jika game belum dijalankan
-pick(_):-
+take(_):-
 	checkStart(0),
 	write('Game belum dimulai. Ketik "start." untuk memulai game.'),nl,!.
 %% buat yang ngecek jumlah items
 %% Jika bag penuh
-pick(_):-
+take(_):-
 	player_bag(Bag),
 	countBag(Bag, X),
 	write(X),
 	write('Bag penuh!.'),nl,
 	!.
 %% Jika bag belum penuh
-pick(I):-
+take(I):-
 	letak_player(X,Y),
 	letak_item(I,X,Y),
 	retract(letak_item(I,X,Y)),
@@ -114,7 +114,7 @@ pick(I):-
 	format('Mendapatkan ~a.',[I]),nl,
 	!.
 %% Jika tidak ada item yang bisa diambil
-pick(_):-
+take(_):-
 	write('Tidak ada item yang bisa diambil disini.'),
 	nl. 
 

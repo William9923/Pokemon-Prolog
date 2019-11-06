@@ -10,14 +10,14 @@ battle(_):-
 	checkStart(0),
 	write('Game has not started. Type "start." to start the game.'),nl,
 	!.
-battle(_) :-
+%% nanti implementasiin nama musuh jg.
+battle(X) :-
 	write('Entering battle phase'),nl,
-	write('A wild monsta has appeared !!'), nl,
+	format('A wild ~a has appeared !!',[X]), nl,
 	list_monsta(L),
 	get_first_monsta(L,Y),
-	format('Go ~a.',[Y]),
+	format('Go ~a!!',[Y]),
 	battle_menu,
-	repeat
 	nl.
 
 battle_menu:-
@@ -36,7 +36,6 @@ battle_user_in(X):-
 	battle_inst(X),
 	X.
 
-attack:-
 
 
 
