@@ -31,5 +31,7 @@ tes:-
 tes:-
 	write('no').
 
+monsta('Legendary Pikachu').
+monsta_attack('Legendary Pikachu', 100).
 
 
