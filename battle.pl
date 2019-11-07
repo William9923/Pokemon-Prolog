@@ -1,10 +1,10 @@
-get_first_monsta([X|_],X).
-
 /* Available instruction */
 battle_inst(attack).
 battle_inst(special_attack).
 battle_inst(withdraw).
 battle_inst(run).
+battle_inst(fight).
+
 
 battle(_):-
 	checkStart(0),
@@ -16,16 +16,24 @@ battle(X) :-
 	format('A wild ~a has appeared !!',[X]), nl,
 	list_monsta(L),
 	get_first_monsta(L,Y),
-	format('Go ~a!!',[Y]),
+	format('Go ~a!!',[Y]),nl,
 	battle_menu,
 	nl.
 
 battle_menu:-
-	tab(1), write('What are you gonna do? (Type with Prolog syntax'),
-	tab(3),write('attack.'),nl,
-	tab(3),write('special_attack.'),nl,
-	tab(3),write('withdraw.'),nl,
-	tab(3),write('run.'),nl.
+	tab(1), write('What are you gonna do? (Type with Prolog syntax)'),nl,
+	write('>'),tab(3), write('fight.'),nl,
+	write('>'),tab(3), write('run.'),nl.
+
+
+%% showMonsta([H|T],H):-
+	
+
+
+
+%% fight :-
+	
+
 
 /* Validate battle commands */
 battle_user_in(X):-

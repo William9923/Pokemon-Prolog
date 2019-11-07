@@ -6,7 +6,7 @@
 		monsta_owned_attack/2,
 		monsta_owned_defense/2,
 		monsta_owned_special_attack/2,
-		monsta_owned_special_attack/2,
+		monsta_owned_special_attack_name/2,
 		monsta_owned_speed/2,
 		monsta_owned_affinity_type/2,
 		player_bag/1, 
@@ -48,7 +48,6 @@ monsta_owned_attack('Dragonflymon', 40).
 monsta_owned_defense('Dragonflymon', 100).
 monsta_owned_special_attack_name('Dragonflymon', 'Dragon Swarm').
 monsta_owned_special_attack('Dragonflymon', 40).
-monsta_owned_special_attack_name('Dragonflymon', 'Dragon Swarm').
 monsta_owned_speed('Dragonflymon', 100).
 monsta_owned_affinity_type('Dragonflymon', leaves).
 

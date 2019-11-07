@@ -133,7 +133,7 @@ randomizer(Result) :-
 	M = 'tokemonwasteland03',
 	battle(M),nl,!.
 
-andomizer(Result) :-
+randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 128,
 	Result < 192,
