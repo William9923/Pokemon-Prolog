@@ -61,9 +61,23 @@ gym(8,5).
 /* Dummy Items */
 letak_item(panadol, 3 ,3).
 letak_item(minimap, 5,5).
+letak_item(monstaCage_S, 1 ,11).
+letak_item(whiteLilyperfume, 6,10).
+letak_item(permenyuvi,3,11).
+letak_item(panahApatis,1,4).
+letak_item(sugionoBalls,11,11).
+letak_item(snickaxs,7,5).
+letak_item(pilSemangatTerbaik,8,1).
+letak_item(susuKmen,10,1).
 
-keyitems(minimap).
-keyitems(panadol).
+keyitems(monstaCage_S).
+keyitems(whiteLilyperfume).
+keyitems(permenyuvi).
+keyitems(panahApatis).
+keyitems(sugionoBalls).
+keyitems(snickaxs).
+keyitems(pilSemangatTerbaik).
+keyitems(susuKmen).
 
 /* Bag Items */
 %% player_bag([]).
