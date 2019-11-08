@@ -38,6 +38,7 @@ randomizer(Result) :-
 	terrain(forest,X,Y),
 	M = 'tokemonforrest02',
 	battle(M),nl,!.
+
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 128,
@@ -45,6 +46,7 @@ randomizer(Result) :-
 	terrain(forest,X,Y),
 	M = 'tokemonforrest03',
 	battle(M),nl,!.
+
 /******************************************************/
 /*randomizer(Result) for wasteland*/
 randomizer(Result) :-
@@ -69,6 +71,7 @@ randomizer(Result) :-
 	terrain(wasteland,X,Y),
 	M = 'tokemonwasteland03',
 	battle(M),nl,!.
+
 /******************************************************/
 /*randomizer(Result) for grassland*/
 randomizer(Result) :-
@@ -77,6 +80,7 @@ randomizer(Result) :-
 	terrain(grassland,X,Y),
 	M = 'tokemonwasteland03',
 	battle(M),nl,!.
+
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 64,
@@ -84,6 +88,7 @@ randomizer(Result) :-
 	terrain(grassland,X,Y),
 	M = 'tokemonwasteland03',
 	battle(M),nl,!.
+
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 128,
@@ -91,6 +96,7 @@ randomizer(Result) :-
 	terrain(grassland,X,Y),
 	M = 'tokemonwasteland03',
 	battle(M),nl,!.
+	
 /******************************************************/
 /*randomizer(Result) for mountain*/
 randomizer(Result) :-

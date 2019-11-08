@@ -34,7 +34,7 @@ start:-
 /* Fungsi Validasi Inputan Awal Pemain*/
 user_in(X):-
 	\+inst(X),
-	write('Masukkan salah!. Silahkan diulangi'), nl.
+	write('Invalid user inputs! Please try again!'), nl.
 
 user_in(X):-
 	inst(X),

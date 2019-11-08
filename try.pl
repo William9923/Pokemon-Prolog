@@ -31,7 +31,20 @@ tes:-
 tes:-
 	write('no').
 
-monsta('Legendary Pikachu').
-monsta_attack('Legendary Pikachu', 100).
+%% monsta('Legendary Pikachu').
+%% monsta_attack('Legendary Pikachu', 100).
 
 
+
+%% looping example
+loops:-
+	repeat,
+	write('Please enter an example: (end to exit)'),
+	read(X),
+	(X == battle ->
+		write('BATTLE'),nl;
+	X == run ->
+		write('Let run'), nl, fail;
+		write('Unknown command'),nl
+		),
+	X == end.
