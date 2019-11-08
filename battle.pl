@@ -56,13 +56,12 @@ battle(_):-
 	checkStart(0),
 	write('Game has not started. Type "start." to start the game.'),nl,
 	!.
+
 %% nanti implementasiin nama musuh jg.
 battle(X) :-
 	tab(3),write('Entering battle phase'),nl,
 	tab(3),format('A wild ~a has appeared !!',[X]), nl,
-	list_monsta(L),
-	%% pick pokemon
-	tab(3),format('Go ~a!!',['Monsta']),nl,
+	enemy_setup(X),
 	battle_menu.
 
 %% Misahin Battle 
@@ -72,7 +71,7 @@ battle_menu:-
 	tab(3),write('->'),tab(2), write('run.'),nl,
 	repeat,
 	tab(3),write('->'),tab(2), read(Ins),
-	member(Ins, [fight, run]),
+	member(Ins, [fight,run]),
 	Ins,
 	end_battle_menu_condition(Ins).
 
@@ -97,17 +96,16 @@ run :-
 run :-
 	in_battle(1),
 	tab(3),write('Escape unsuccessful!'),nl.
-
-
 %% run before fight 
-run(X,Bool) :-
+run:-
 	in_battle(0),
+	random(1,11,X),
 	X < 7,
-	Bool = true,
 	tab(3),write('Escape successful !'),nl,!.
-run(X,Bool) :-
-	Bool = false,
-	tab(3),write('Escape unsuccessful !'),nl.
+run:-
+	in_battle(0),
+	tab(3),write('Escape unsuccessful !'),nl,
+	fight.
 
 /* Validate battle commands */
 battle_user_in(X):-
@@ -127,7 +125,6 @@ fight :-
 	in_battle(0),
 	retract(in_battle(0)),
 	asserta(in_battle(1)),
-	%% add battle commands : attack, special attack, bag, run 
 	repeat,
 	battle_command,
 	tab(3),
@@ -138,24 +135,47 @@ fight :-
 
 %% Setup : pick up monsta
 %% means you can withdraw instantly to
-pick(X):- 
+
+%% pick first monsta:
+pick(X):-
+	in_battle(1),
+	curr_monsta(''),
 	list_monsta(L),
-	member(Monsta,L),
+	member(X,L),
 	retract(curr_monsta(_)),
-	asserta(curr_monsta(Monsta)),
-	tab(3),write('Switched Monsta'),nl.
+	asserta(curr_monsta(X)),
+	tab(3), format('Lets go ~a',[X]),nl,!.
+
+pick(X):-
+	in_battle(1),
+	curr_monsta(X),
+	write('You cannot switch to that monsta!'),nl,!.
+
+pick(X):- 
+	in_battle(1),
+	list_monsta(L),
+	member(X,L),
+	\+retract(curr_monsta('')),
+	retract(curr_monsta(_)),
+	asserta(curr_monsta(X)),
+	tab(3),write('Switched Monsta'),nl,!.
+
+pick(X):-
+	in_battle(1),
+	write('You do not have that monsta as your slave'),nl.
 
 %% Setup for enemies
 enemy_setup(X):-
-	retract(enemy_monsta(_)),
-	retract(enemy_monsta_health(_)),
 	monsta_health(X,Health),
+	retract(enemy_monsta(_)),
+	retract(enemy_monsta_health(_,_)),
 	asserta(enemy_monsta(X)),
-	asserta(enemy_monsta_health(Health)).
+	asserta(enemy_monsta_health(X,Health)),!.
 
 %% attack for player
 attack :-
     in_battle(1),
+    trace,
 	%% get monsta attack + affinity
 	curr_monsta(OwnedMonsta),
 	monsta_attack(OwnedMonsta, OwnedAttack),
@@ -168,7 +188,7 @@ attack :-
 	%% use the affinity_checker
 	affinity_checker(OwnedAffinity, EnemyAffinity, AffinityBalance),
 	%% decrease the amount of health by the attack
-	Damage is round((OwnedAttack - round(0.5 * EnemiesDefense))* Affinity),
+	Damage is round(OwnedAttack - (0.1 * EnemiesDefense)* AffinityBalance),
 	NewHealth is EnemyHealth - Damage,
 	retract(enemy_monsta_health(EnemyMonsta, EnemyHealth)),
 	asserta(enemy_monsta_health(EnemyMonsta, NewHealth)),
@@ -189,7 +209,7 @@ enemy_attack :-
 	%% use the affinity_checker
 	affinity_checker(EnemyAffinity, OwnedAffinity, AffinityBalance),
 	%% decrease the amount of health by the attack
-	Damage is round((EnemyAttack - round(0.5 * OwnedDefense))* Affinity),
+	Damage is round(EnemyAttack - (0.5 * OwnedDefense)* AffinityBalance),
 	NewHealth is OwnedHealth - Damage,
 	retract(monsta_owned_health(OwnedMonsta,OwnedHealth)),
 	asserta(monsta_owned_health(OwnedMonsta,NewHealth)),
@@ -243,16 +263,11 @@ enemy_monsta_checker:-
 	retract(enemy_monsta(M)),
 	retract(enemy_monsta_health(M,_)),
 	asserta(enemy_monsta('')),
-	asserta(enemy_monsta_health('',0)).
+	asserta(enemy_monsta_health('',0)),
+	retract(in_battle(1)),
+	asserta(in_battle(0)).
 
-/* Counting Items */
-%% Basis
-countMonsta(_,_):- checkStart(1),!.
-countMonsta([],0).
-%% Rekurens
-countMonsta([_|T],X):-
-	countMonsta(T,X1),
-	X is X1 + 1.
+
 
 %% succesful capture
 capture:- 

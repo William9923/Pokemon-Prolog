@@ -45,6 +45,16 @@ monsta_owned_special_attack('Dragonflymon', 40).
 monsta_owned_speed('Dragonflymon', 100).
 monsta_owned_affinity_type('Dragonflymon', leaves).
 
+/* Counting Items */
+%% Basis
+countMonsta(_,_):- checkStart(1),!.
+countMonsta([],0).
+%% Rekurens
+countMonsta([_|T],X):-
+	countMonsta(T,X1),
+	X is X1 + 1.
+
+
 %% gym location : (8,5)
 gym(8,5).
 

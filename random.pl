@@ -6,21 +6,21 @@ randomizer(Result) :-
 	letak_player(X,Y), 
 	Result < 64,
 	terrain(desert,X,Y),
-	M = 'tokemondesert01',
+	M = 'Dragonflymon',
 	battle(M),nl,!.
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 64,
 	Result < 128,
 	terrain(desert,X,Y),
-	M = 'tokemondesert02',
+	M = 'Falconmon',
 	battle(M),nl,!.
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 128,
 	Result < 192,
 	terrain(desert,X,Y),
-	M = 'tokemondesert03',
+	M = 'GreatOwlmon',
 	battle(M),nl,!.
 /******************************************************/
 /*randomizer(Result) for forest*/
@@ -28,7 +28,7 @@ randomizer(Result) :-
 	letak_player(X,Y),
 	Result < 64,
 	terrain(forest,X,Y),
-	M = 'tokemonforest01',
+	M = 'MantaRaymon',
 	battle(M),nl,!.
 
 randomizer(Result) :-
@@ -36,7 +36,7 @@ randomizer(Result) :-
 	Result >= 64,
 	Result < 128,
 	terrain(forest,X,Y),
-	M = 'tokemonforrest02',
+	M = 'GatorGatorGatormon',
 	battle(M),nl,!.
 
 randomizer(Result) :-
@@ -44,7 +44,7 @@ randomizer(Result) :-
 	Result >= 128,
 	Result < 192,
 	terrain(forest,X,Y),
-	M = 'tokemonforrest03',
+	M = 'Orcamon',
 	battle(M),nl,!.
 
 /******************************************************/
@@ -53,7 +53,7 @@ randomizer(Result) :-
 	letak_player(X,Y),
 	Result < 64,
 	terrain(wasteland,X,Y),
-	M = 'tokemonwasteland01',
+	M = 'Cobramon',
 	battle(M),nl,!.
 
 randomizer(Result) :-
@@ -61,7 +61,7 @@ randomizer(Result) :-
 	Result >= 64,
 	Result < 128,
 	terrain(wasteland,X,Y),
-	M = 'tokemonwasteland02',
+	M = 'KomodoDragonmon',
 	battle(M),nl,!.
 
 randomizer(Result) :-
@@ -69,7 +69,7 @@ randomizer(Result) :-
 	Result >= 128,
 	Result < 192,
 	terrain(wasteland,X,Y),
-	M = 'tokemonwasteland03',
+	M = 'Magmamon',
 	battle(M),nl,!.
 
 /******************************************************/
@@ -78,7 +78,7 @@ randomizer(Result) :-
 	letak_player(X,Y),
 	Result < 64,
 	terrain(grassland,X,Y),
-	M = 'tokemonwasteland03',
+	M = 'Slyphmon',
 	battle(M),nl,!.
 
 randomizer(Result) :-
@@ -86,7 +86,7 @@ randomizer(Result) :-
 	Result >= 64,
 	Result < 128,
 	terrain(grassland,X,Y),
-	M = 'tokemonwasteland03',
+	M = 'Slyphmon',
 	battle(M),nl,!.
 
 randomizer(Result) :-
@@ -94,7 +94,7 @@ randomizer(Result) :-
 	Result >= 128,
 	Result < 192,
 	terrain(grassland,X,Y),
-	M = 'tokemonwasteland03',
+	M = 'Slyphmon',
 	battle(M),nl,!.
 	
 /******************************************************/
@@ -103,7 +103,7 @@ randomizer(Result) :-
 	letak_player(X,Y),
 	Result < 64,
 	terrain(mountain,X,Y),
-	M = 'tokemonwasteland03',
+	M = 'Undinemon',
 	battle(M),nl,!.
 
 randomizer(Result) :-
@@ -111,7 +111,7 @@ randomizer(Result) :-
 	Result >= 64,
 	Result < 128,
 	terrain(mountain,X,Y),
-	M = 'tokemonwasteland03',
+	M = 'Undinemon',
 	battle(M),nl,!.
 
 randomizer(Result) :-
@@ -119,7 +119,7 @@ randomizer(Result) :-
 	Result >= 128,
 	Result < 192,
 	terrain(mountain,X,Y),
-	M = 'tokemonwasteland03',
+	M = 'Undinemon',
 	battle(M),nl,!.
 
 /******************************************************/
@@ -128,7 +128,7 @@ randomizer(Result) :-
 	letak_player(X,Y),
 	Result < 64,
 	terrain(lava,X,Y),
-	M = 'tokemonwasteland03',
+	M = 'Salamandermon',
 	battle(M),nl,!.
 
 randomizer(Result) :-
@@ -136,7 +136,7 @@ randomizer(Result) :-
 	Result >= 64,
 	Result < 128,
 	terrain(lava,X,Y),
-	M = 'tokemonwasteland03',
+	M = 'Salamandermon',
 	battle(M),nl,!.
 
 randomizer(Result) :-
@@ -144,7 +144,7 @@ randomizer(Result) :-
 	Result >= 128,
 	Result < 192,
 	terrain(lava,X,Y),
-	M = 'tokemonwasteland03',
+	M = 'Salamandermon',
 	battle(M),nl,!.
 	
 /******************************************************/
