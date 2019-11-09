@@ -1,21 +1,7 @@
-:- dynamic(
-	enemy_monsta/1,
-	enemy_monsta_health/2,
-	curr_monsta/1,
-	in_battle/1,
-	monsta_out/1
-	).
-
-in_battle(0).
-monsta_out(0).
-%% Initial value
-enemy_monsta('').
-enemy_monsta_health('',0).
-curr_monsta('').
-
 /* Available instruction */
 battle_inst(bag).
 battle_inst(attack).
+battle_inst(status).
 battle_inst(special_attack).
 battle_inst(pick(_)).  %% masi bingung implementasi
 battle_inst(run).
@@ -24,6 +10,7 @@ battle_inst(use(_)).
 battle_inst(use(_,_)).
 battle_inst(capture).
 
+%% Battle Commands 
 battle_command:-
 	in_battle(1),
 	tab(3), write('Available battle commands: (in Prolog Syntax)'),nl,
@@ -31,6 +18,8 @@ battle_command:-
 	tab(3), write('> special_attack.'),nl,
 	tab(3), write('> pick(X).'),nl,
 	tab(3), write('> capture.'),nl.
+
+
 
 
 %% Affinity rules
@@ -41,7 +30,13 @@ affinity(water, fire, win).
 affinity(water, leaves, lose).
 affinity(fire, leaves, win).
 affinity(fire, water, lose).
-affinity(X,X, draw).
+affinity(wing, earth, win).
+affinity(earth,wing, lose).
+affinity(ghost,wing,win).
+affinity(wing,ghost,lose).
+affinity(earth,ghost,win).
+affinity(ghost, earth, lose).
+affinity(X,Y,draw).
 
 affinity_checker(X,X,1):-!.
 affinity_checker(X,Y,Z):-
@@ -72,80 +67,20 @@ battle_menu:-
 	tab(3),write('->'),tab(2), read(Ins),
 	member(Ins, [fight,run]),
 	Ins,
+	%% balikin ke kondisi semula
+	retract(curr_monsta(_)),
+	asserta(curr_monsta('')),
+	retract(enemy_monsta(_)),
+	retract(enemy_monsta_health(_,_)),
+	asserta(enemy_monsta('')),
+	asserta(enemy_monsta_health('',0)),
+	retract(special_out(_)),
+	asserta(special_out(0)),
 	end_battle_menu_condition(Ins).
 
 %% battle menu condition ends.
 end_battle_menu_condition(fight).
 end_battle_menu_condition(run).
-
-%% run in the battle 
-run :- 
-	in_battle(1),
-	random(1,10,X),
-	X < 5,
-	tab(3),write('Escape successful'),nl,
-	retract(in_battle(1)),
-	retract(enemy_monsta(M)),
-	retract(enemy_monsta_health(M,_)),
-	asserta(enemy_monsta('')),
-	asserta(enemy_monsta_health('',0)),
-	retract(curr_monsta(M)),
-	asserta(curr_monsta('')),
-	asserta(in_battle(0)),!.
-run :-
-	in_battle(1),
-	tab(3),write('Escape unsuccessful!'),nl.
-%% run before fight 
-run:-
-	in_battle(0),
-	random(1,11,X),
-	X < 7,
-	tab(3),write('Escape successful !'),nl,!.
-run:-
-	in_battle(0),
-	tab(3),write('Escape unsuccessful !'),nl,
-	fight.
-
-/* Validate battle commands */
-battle_user_in(X):-
-	\+battle_inst(X),
-	write('Invalid battle commands. Please try again!'),nl.
-
-battle_user_in(X):-
-	battle_inst(X),
-	X.
-%% pick_command
-pick_command:-
-	write('Please pick your monsta!'),nl,
-	write('Use "pick(<monsta>)" to bring your monsta into battle!'),nl.
-
-/* Main Battle Instruction */
-%% before pick monsta
-fight :-
-	in_battle(0),
-	retract(in_battle(0)),
-	asserta(in_battle(1)),
-	monsta_out(0),
-	repeat,
-	pick_command,
-	tab(3),
-	write(' -> '),
-	read(Ins),nl,
-	battle_user_in(Ins),nl,
-	monsta_out(1), fight,!. 
-%% after picked monsta 
-fight:- 
-	in_battle(1),
-	monsta_out(1),
-	repeat,
-	battle_command,
-	tab(3), write(' -> '),
-	read(Ins), nl,
-	battle_user_in(Ins),nl,
-	enemy_attack,
-	status,
-	in_battle(0).
-
 
 %% show status (temporary, for debugging purpose)
 status :-
@@ -153,62 +88,12 @@ status :-
 	enemy_monsta_health(X,EHealth),
 	curr_monsta(Y),
 	monsta_owned_health(Y,Health),
-	format('Your monsta health ~d',[Health]),nl,
-	format('Your opponent health ~d', [EHealth]),nl.
-
-%% Setup : pick up monsta
-%% means you can withdraw instantly to
-pick(X):-
-	in_battle(1),
-	\+monsta(X),
-	tab(3), write('Invalid monsta'),nl,!.
-
-%% pick first monsta:
-pick(X):-
-	in_battle(1),
-	curr_monsta(''),
-	list_monsta(L),
-	member(X,L),
-	retract(curr_monsta(_)),
-	asserta(curr_monsta(X)),
-	tab(3), format('Lets go ~a',[X]),nl,
-	retract(monsta_out(0)),
-	asserta(monsta_out(1)),!.
-
-%% switch to the current monsta 
-pick(X):-
-	in_battle(1),
-	curr_monsta(X),
-	write('You cannot switch to that monsta!'),nl,!.
-
-%% switch of your monsta
-pick(X):- 
-	in_battle(1),
-	monsta_out(1),
-	list_monsta(L),
-	member(X,L),
-	\+retract(curr_monsta('')),
-	retract(curr_monsta(_)),
-	asserta(curr_monsta(X)),
-	tab(3),write('Switched Monsta'),nl,!.
-
-%% switch to the monsta you don't have
-pick(_):-
-	in_battle(1),
-	write('You do not have that monsta as your slave'),nl.
-
-%% Setup for enemies
-enemy_setup(X):-
-	monsta_health(X,Health),
-	retract(enemy_monsta(_)),
-	retract(enemy_monsta_health(_,_)),
-	asserta(enemy_monsta(X)),
-	asserta(enemy_monsta_health(X,Health)),!.
+	tab(3),format('Your monsta health ~d',[Health]),nl,
+	tab(3),format('Your opponent health ~d', [EHealth]),nl.
 
 %% attack for player
 attack :-
     in_battle(1),
-    trace,
 	%% get monsta attack + affinity
 	curr_monsta(OwnedMonsta),
 	monsta_attack(OwnedMonsta, OwnedAttack),
@@ -221,36 +106,25 @@ attack :-
 	%% use the affinity_checker
 	affinity_checker(OwnedAffinity, EnemyAffinity, AffinityBalance),
 	%% decrease the amount of health by the attack
-	Damage is round(OwnedAttack - (0.1 * EnemiesDefense)* AffinityBalance),
+	Damage is round((OwnedAttack - (0.1 * EnemiesDefense))* AffinityBalance),
 	NewHealth is EnemyHealth - Damage,
 	retract(enemy_monsta_health(EnemyMonsta, EnemyHealth)),
 	asserta(enemy_monsta_health(EnemyMonsta, NewHealth)),
-	battle_checker.
-
-%% attack for enemy 
-enemy_attack :- 
-    in_battle(1),
-	%% get monsta attack + affinity
-	curr_monsta(OwnedMonsta),
-	monsta_owned_health(OwnedMonsta, OwnedHealth),
-	monsta_defense(OwnedMonsta, OwnedDefense),
-	monsta_affinity_type(OwnedMonsta, OwnedAffinity),
-	%% get enemies defense + affinity 
-	enemy_monsta(EnemyMonsta),
-	monsta_attack(EnemyMonsta,EnemyAttack),
-	monsta_affinity_type(EnemyMonsta, EnemyAffinity),
-	%% use the affinity_checker
-	affinity_checker(EnemyAffinity, OwnedAffinity, AffinityBalance),
-	%% decrease the amount of health by the attack
-	Damage is round(EnemyAttack - (0.1 * OwnedDefense)* AffinityBalance),
-	NewHealth is OwnedHealth - Damage,
-	retract(monsta_owned_health(OwnedMonsta,OwnedHealth)),
-	asserta(monsta_owned_health(OwnedMonsta,NewHealth)),
-	battle_checker.
+	tab(3),write('Monsta has attacked opponent monsta!'),nl,
+	battle_checker,
+	enemy_attack,
+	status.
 
 %% special_attack : exclusive only when monsta become your slave
 special_attack :-
+	in_battle(1),
+	special_out(1),
+	tab(3), write('Your monsta tried to use the special attack'),nl,
+	tab(3), write('But it failed'),nl,!.
+
+special_attack :-
     in_battle(1),
+    special_out(0),
 	%% get monsta attack + affinity
 	curr_monsta(OwnedMonsta),
 	monsta_special_attack(OwnedMonsta, OwnedAttack),
@@ -264,12 +138,16 @@ special_attack :-
 	%% use the affinity_checker
 	affinity_checker(OwnedAffinity, EnemyAffinity, AffinityBalance),
 	%% decrease the amount of health by the attack
-	Damage is round((OwnedAttack - round(0.1 * EnemiesDefense))* Affinity),
+	Damage is round((OwnedAttack - (0.1 * EnemiesDefense))* AffinityBalance),
 	NewHealth is EnemyHealth - Damage,
 	retract(enemy_monsta_health(EnemyMonsta, EnemyHealth)),
 	asserta(enemy_monsta_health(EnemyMonsta, NewHealth)),
 	format('Take this!! ~a',[OwnedAttackName]),nl,
-	battle_checker.
+	retract(special_out(0)),
+	asserta(special_out(1)),
+	battle_checker,
+	enemy_attack,
+	status.
 
 %% checker if the current monsta die
 battle_checker:- 
@@ -318,39 +196,65 @@ battle_checker:-
 	retract(monsta_out(1)),
 	asserta(monsta_out(0)),
 	die,!.
-battle_checker.
+battle_checker :- in_battle(1).
 
-%% succesful capture
-capture:- 
+
+/* Validate battle commands */
+battle_user_in(X):-
+	\+battle_inst(X),
+	write('Invalid battle commands. Please try again!'),nl.
+
+battle_user_in(X):-
+	battle_inst(X),
+	X.
+%% pick_command
+pick_command:-
+	write('Please pick your monsta!'),nl,
+	write('Use "pick(<monsta>)" to bring your monsta into battle!'),nl.
+
+/* Main Battle Instruction */
+%% before pick monsta
+fight :-
+	in_battle(0),
+	retract(in_battle(0)),
+	asserta(in_battle(1)),
+	monsta_out(0),
+	repeat,
+	pick_command,
+	tab(3),
+	write(' -> '),
+	read(Ins),nl,
+	battle_user_in(Ins),nl,
+	monsta_out(1), fight,!.
+
+%% after picked monsta 
+fight:- 
 	in_battle(1),
-	list_monsta(L),
-	countMonsta(L,X),
-	X < 6,
-	enemy_monsta(M),
-	enemy_monsta_health(M,Health),
-	format('You have captured ~a!!',[M]),
-	append(L,[M],LNew),
-	retract(list_monsta(L)),
-	asserta(list_monsta(LNew)),
-	asserta(monsta_owned(M)),
-	asserta(monsta_owned_health(M,Health)),
-	format('Congratulation, you have successfully make ~a your slave!!', [M]),nl,
-	retract(in_battle(1)),
-	asserta(in_battle(0)),
-	retract(monsta_out(1)),
-	asserta(monsta_out(0)),
-	!.
+	monsta_out(1),
+	repeat,
+	battle_command,
+	tab(3), write(' -> '),
+	read(Ins), nl,
+	battle_user_in(Ins),
+	in_battle(0),!.
 
-%% if inventory full
-capture:-
-	list_monsta(L),
-	countMonsta(L,X),
-	X >= 6,
-	write('You have too much monsta with you already'),nl,!.
+%% fight:-
+%% 	retract(curr_monsta(_)),
+%% 	asserta(curr_monsta('')),
+%% 	retract(enemy_monsta(_)),
+%% 	retract(enemy_monsta_health(_,_)),
+%% 	asserta(enemy_monsta('')),
+%% 	asserta(enemy_monsta_health('',0)), 
+%% 	start_menu.
 
-%% Unsuccessful capture 
-capture:-
-	write('You failed to capture it'),nl.
+
+
+
+
+
+
+
+
 
 
 

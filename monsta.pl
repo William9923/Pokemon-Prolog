@@ -176,7 +176,7 @@ monsta_special_attack('Armadillomon', 80).
 monsta_special_attack('GiantWormmon', 80).
 monsta_special_attack('Golemon', 80).
 monsta_special_attack('Gnomemon', 100).
-monsta_special_attack('Dragonflymon', 40).
+monsta_special_attack('Dragonflymon', 60).
 monsta_special_attack('Falconmon', 60).
 monsta_special_attack('GreatOwlmon', 60).
 monsta_special_attack('Slyphmon', 60).
@@ -236,12 +236,12 @@ monsta_affinity_type('Armadillomon', earth).
 monsta_affinity_type('GiantWormmon', earth).
 monsta_affinity_type('Golemon', earth).
 monsta_affinity_type('Gnomemon', earth).
-monsta_affinity_type('Dragonflymon', leaves).
-monsta_affinity_type('Falconmon', leaves).
-monsta_affinity_type('GreatOwlmon', leaves).
-monsta_affinity_type('Slyphmon', leaves).
-monsta_affinity_type('Legendary EmeraldHawkmon', leaves).
-monsta_affinity_type('Spectermon', revenant).
-monsta_affinity_type('Bansheemon', revenant).
-monsta_affinity_type('Draugrmon', revenant).
-monsta_affinity_type('GrimmHoundmon', revenant).
+monsta_affinity_type('Dragonflymon', wing).
+monsta_affinity_type('Falconmon', wing).
+monsta_affinity_type('GreatOwlmon', wing).
+monsta_affinity_type('Slyphmon', wing).
+monsta_affinity_type('Legendary EmeraldHawkmon', wing).
+monsta_affinity_type('Spectermon', ghost).
+monsta_affinity_type('Bansheemon', ghost).
+monsta_affinity_type('Draugrmon', ghost).
+monsta_affinity_type('GrimmHoundmon', ghost).

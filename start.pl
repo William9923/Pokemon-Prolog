@@ -24,6 +24,10 @@ start:-
 	asserta(checkStart(1)),
 	start_commands, nl,
 	help, nl, nl,
+	start_menu.
+	
+
+start_menu:-
 	repeat,
 	write('> '),
 	read(Ins),
