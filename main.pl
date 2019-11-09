@@ -19,6 +19,7 @@
 :- include(gym).
 :- include(start).
 :- include(battle).
+:- include(attack).
 :- include(move).
 
 

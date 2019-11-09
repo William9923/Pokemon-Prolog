@@ -33,9 +33,6 @@ tes:-
 
 %% monsta('Legendary Pikachu').
 %% monsta_attack('Legendary Pikachu', 100).
-
-
-
 %% looping example
 loops:-
 	repeat,

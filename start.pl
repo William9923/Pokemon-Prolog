@@ -5,11 +5,11 @@ inst(s).
 inst(d).
 inst(a).
 inst(map).
-inst(pick(_)).
+%% inst(pick(_)).
 inst(drop(_)).
 inst(drop_monsta(_)).
 inst(use(_)).
-inst(attack).
+%% inst(attack).
 inst(status).
 inst(bag).
 %% inst(save_game(_)).
@@ -67,7 +67,7 @@ help :-
 	write('Gym      : G'), nl,
     write('Item     : I'), nl,
     write('Cave     : C'), nl,
-    write('Tree     : T'), nl.
+    write('River    : R'), nl.
 
 help_battle :-
 	write('Perintah saat dalam battle:'),nl,
