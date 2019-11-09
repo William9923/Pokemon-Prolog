@@ -6,13 +6,7 @@
 		player_bag/1, 
 		checkStart/1,
 		checkGym/1,
-		letak_item/3,
-		enemy_monsta/1,
-		enemy_monsta_health/2,
-		curr_monsta/1,
-		in_battle/1,
-		monsta_out/1,
-		special_out/1
+
 		).
 
 
@@ -78,13 +72,23 @@ letak_item(pilSemangatTerbaik,8,1).
 letak_item(susuKmen,10,1).
 
 keyitems(monstaCage_S).
-keyitems(whiteLilyperfume).
+keyitems(whiteLilyPerfume).
 keyitems(permenyuvi).
 keyitems(panahApatis).
 keyitems(sugionoBalls).
 keyitems(snickaxs).
 keyitems(pilSemangatTerbaik).
 keyitems(susuKmen).
+
+/* initializing items */
+monstaCage_S(0).
+whiteLilyPerfume(0).
+permenyuvi(0).
+panahApatis(0).
+sugionoBalls(0).
+snickaxs(0).
+pilSemangatTerbaik(0).
+susuKmen(0).
 
 /* Bag Items */
 %% player_bag([]).
@@ -120,6 +124,7 @@ win :-
 	retract(checkStart(1)),
 	asserta(checkStart(0)),
 	abort.
+
 
 /* Quitting games*/
 quit:-

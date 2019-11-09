@@ -1,5 +1,9 @@
 /*** MOVE - move procedure ***/
 /* Moving up */
+dynamic(
+	wlEffect/1
+	).
+
 w :-
     checkStart(0),
     write('You have not started the game.'), !.
@@ -18,6 +22,20 @@ w :- letak_player(X,Y),
     Ynew is Y + 1,
     terrain(block,X,Ynew),
     write('You cannot go there!'), nl, !.
+
+w :- letak_player(X,Y),
+    retract(letak_player(X,Y)),
+    Ynew is Y + 1,
+    asserta(letak_player(X,Ynew)),
+    write('Player berbelok ke atas'),nl,
+    map,nl,
+    Z > 0,
+    wlEffect(Z), 
+    retract(wlEffect(Z)),
+    Znew is Z-1,
+    asserta(wlEffect(Znew)),
+    write('Para monster liar berlari saat mencium baumu'),nl, !.
+
 %% tambahin buat gym
 %% tambahin buat yang legendary cave
 
