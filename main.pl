@@ -5,8 +5,7 @@
 		monsta_owned_health/2,
 		player_bag/1, 
 		checkStart/1,
-		checkGym/1,
-
+		checkGym/1
 		).
 
 
