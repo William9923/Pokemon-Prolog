@@ -80,15 +80,15 @@ keyitems(snickaxs).
 keyitems(pilSemangatTerbaik).
 keyitems(susuKmen).
 
-/* initializing items */
+/* initializing items and count item */
 monstaCage_S(0).
 whiteLilyPerfumeC(3).
-permenyuvi(0).
-panahApatis(0).
-sugionoBalls(0).
-snickaxs(0).
-pilSemangatTerbaik(0).
-susuKmen(0).
+permenyuviC(0).
+panahApatisC(0).
+sugionoBallsC(0).
+snickaxsC(0).
+pilSemangatTerbaikC(0).
+susuKmenC(0).
 
 /* Bag Items */
 %% player_bag([]).
