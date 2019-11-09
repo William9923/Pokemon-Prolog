@@ -18,6 +18,8 @@ w :- letak_player(X,Y),
     Ynew is Y + 1,
     terrain(block,X,Ynew),
     write('You cannot go there!'), nl, !.
+%% tambahin buat gym
+%% tambahin buat yang legendary cave
 
 w :- letak_player(X,Y),
     retract(letak_player(X,Y)),

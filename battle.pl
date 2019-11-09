@@ -22,9 +22,6 @@ battle_inst(fight).
 battle_inst(use(_)).
 battle_inst(use(_,_)).
 
-battle_command :- 
-	in_battle(0),
-	write('Lu goblok will'),nl,!.
 battle_command:-
 	in_battle(1),
 	tab(3), write('Available battle commands: (in Prolog Syntax)'),nl,
