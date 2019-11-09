@@ -1,33 +1,36 @@
+/*
 :- dynamic(
-    whiteLilyPerfume/1,wlEffect/1,
+    whiteLilyPerfumeC/1,
     permenyuvi/1,monsta_health/2,
     panahApatis/1,pAeffect/1,
     sugionoBalls/1,
     snickaxs/1,
     pilSemangatTerbaik/1,monsta_attack/2,
-    susuKmen/1.
-	).
-
-
+    susuKmen/1).
+*/
+:- dynamic(
+    whiteLilyPerfumeC/1,wlEffect/1).
+wlEffect(0).
 use(_) :-
 	checkStart(0),
     write('Permainan Belum dimulai'), !.
 
 %use whitelily
 use(whiteLilyPerfume) :- 
-                    whiteLilyPerfume(0),
+                    whiteLilyPerfumeC(0),
                     write('Kamu tidak mempunyai item tersebut'),!.
+
 use(whiteLilyPerfume) :-
-                    whiteLilyPerfume(Y),
-                    retract(whiteLilyPerfume(Y)),
+                    whiteLilyPerfumeC(Y),
+                    retract(whiteLilyPerfumeC(Y)),
                     Ynew is Y-1,
-                    asserta(whiteLilyPerfume(Y+1)),
+                    asserta(whiteLilyPerfumeC(Ynew)),
                     wlEffect(X),
                     retract(wlEffect(X)),
                     Xnew is X+4,
                     asserta(wlEffect(Xnew)),
                     write('Bau harum menyerbak keluar dari tubuhmu'),!.
-
+/*
 %use permenyuvi
 use(permenyuvi) :-
                     permenyuvi(0),
@@ -114,7 +117,7 @@ use(susuKmen) :-
                     Ynew is Y+1,
                     asserta(sKEffect(Ynew)),
                     write('Monstamu menjadi kuat, defensive meningkat'),!.
-
+*/
                     
                     
 

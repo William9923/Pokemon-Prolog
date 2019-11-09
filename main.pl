@@ -26,6 +26,7 @@
 :- include(battle).
 %% :- include(attack).
 :- include(move).
+:- include(use).
 
 
 
@@ -81,7 +82,7 @@ keyitems(susuKmen).
 
 /* initializing items */
 monstaCage_S(0).
-whiteLilyPerfume(0).
+whiteLilyPerfumeC(3).
 permenyuvi(0).
 panahApatis(0).
 sugionoBalls(0).

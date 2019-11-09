@@ -1,8 +1,5 @@
 /*** MOVE - move procedure ***/
 /* Moving up */
-dynamic(
-	wlEffect/1
-	).
 
 w :-
     checkStart(0),
@@ -24,17 +21,16 @@ w :- letak_player(X,Y),
     write('You cannot go there!'), nl, !.
 
 w :- letak_player(X,Y),
+    wlEffect(Z), Z > 0,
     retract(letak_player(X,Y)),
     Ynew is Y + 1,
     asserta(letak_player(X,Ynew)),
     write('Player berbelok ke atas'),nl,
-    map,nl,
-    Z > 0,
-    wlEffect(Z), 
+    map,nl, 
     retract(wlEffect(Z)),
     Znew is Z-1,
     asserta(wlEffect(Znew)),
-    write('Para monster liar berlari saat mencium baumu'),nl, !.
+    write('Para monster liar berlari saat mencium baumu tersisa '),write(Znew), write(' langkah lagi'),nl, !.
 
 %% tambahin buat gym
 %% tambahin buat yang legendary cave
@@ -69,6 +65,18 @@ s :- letak_player(X,Y),
     write('You cannot go there!'), nl, !.
 
 s :- letak_player(X,Y),
+    wlEffect(Z), Z > 0,
+    retract(letak_player(X,Y)),
+    Ynew is Y - 1,
+    asserta(letak_player(X,Ynew)),
+    write('Player berbelok ke bawah'),nl,
+    map,nl, 
+    retract(wlEffect(Z)),
+    Znew is Z-1,
+    asserta(wlEffect(Znew)),
+    write('Para monster liar berlari saat mencium baumu tersisa '),write(Znew), write(' langkah lagi'),nl, !.
+
+s :- letak_player(X,Y),
     retract(letak_player(X,Y)),
     Ynew is Y - 1,
     asserta(letak_player(X,Ynew)), 
@@ -97,6 +105,17 @@ d :- letak_player(X,Y),
     terrain(block,Xnew,Y),
     write('You cannot go there!'), nl, !.
 
+d :- letak_player(X,Y),
+    wlEffect(Z), Z > 0,
+    retract(letak_player(X,Y)),
+    Xnew is X + 1,
+    asserta(letak_player(Xnew,Y)),
+    write('Player berbelok ke kanan'),nl,
+    map,nl, 
+    retract(wlEffect(Z)),
+    Znew is Z-1,
+    asserta(wlEffect(Znew)),
+    write('Para monster liar berlari saat mencium baumu tersisa '),write(Znew), write(' langkah lagi'),nl, !.
 
 d :- letak_player(X,Y),
     retract(letak_player(X,Y)),
@@ -126,6 +145,18 @@ a :- letak_player(X,Y),
     Xnew is X - 1,
     terrain(block,Xnew,Y),
     write('You cannot go there!'), nl, !.
+
+a :- letak_player(X,Y),
+    wlEffect(Z), Z > 0,
+    retract(letak_player(X,Y)),
+    Xnew is X - 1,
+    asserta(letak_player(Xnew,Y)),
+    write('Player berbelok ke kiri'),nl,
+    map,nl, 
+    retract(wlEffect(Z)),
+    Znew is Z-1,
+    asserta(wlEffect(Znew)),
+    write('Para monster liar berlari saat mencium baumu tersisa '),write(Znew), write(' langkah lagi'),nl, !.
 
 a :- letak_player(X,Y),
     retract(letak_player(X,Y)),
