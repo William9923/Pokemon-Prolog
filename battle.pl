@@ -3,12 +3,12 @@
 	2. pick
 	3. attack, special_attack, capture, use(), status, bag, run, .
 */
-
+%% First phase instruction
 battle_inst_first(fight).
 battle_inst_first(run).
-
+%% Second phase instruction
 battle_inst_second(pick(_)).
-
+%% Third phase instruction
 battle_inst_third(attack).
 battle_inst_third(special_attack).
 battle_inst_third(capture).
@@ -17,7 +17,6 @@ battle_inst_third(use(_,_)).
 battle_inst_third(bag).
 battle_inst_third(run).
 battle_inst_third(status).
-
 
 %% Battle Commands 
 battle_command:-
@@ -35,8 +34,7 @@ battle(_):-
 	checkStart(0),
 	write('Game has not started. Type "start." to start the game.'),nl,
 	!.
-
-%% nanti implementasiin nama musuh jg.
+	
 battle(X) :-
 	tab(3),write('Entering battle phase'),nl,
 	tab(3),format('A wild ~a has appeared !!',[X]), nl,

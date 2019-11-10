@@ -8,9 +8,10 @@ run:-
 	in_battle(0),
 	tab(3),write('Escape unsuccessful !'),nl,
 	fight.
+
 %% run in the battle 
+%% if run successful
 run :- 
-	trace,
 	in_battle(1),
 	random(1,10,X),
 	X < 5,
@@ -21,8 +22,8 @@ run :-
 	asserta(enemy_monsta_health('',0)),
 	retract(curr_monsta(_)),
 	asserta(curr_monsta('')),
-	end_battle,
-	!.
+	end_battle,!.
+%% run in battle, unsuccessful.
 run :-
 	in_battle(1),
 	tab(3),write('Escape unsuccessful!'),nl,
