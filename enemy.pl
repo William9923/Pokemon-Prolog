@@ -4,8 +4,7 @@ enemy_setup(X):-
 	retract(enemy_monsta(_)),
 	retract(enemy_monsta_health(_,_)),
 	asserta(enemy_monsta(X)),
-	asserta(enemy_monsta_health(X,Health)),!.
-
+	asserta(enemy_monsta_health(X,Health)).
 %% attack for enemy 
 enemy_attack:-
 	in_battle(0).

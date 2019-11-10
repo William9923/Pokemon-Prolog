@@ -5,6 +5,7 @@ inst(s).
 inst(d).
 inst(a).
 inst(map).
+inst(take).
 %% inst(pick(_)).
 inst(drop(_)).
 inst(drop_monsta(_)).

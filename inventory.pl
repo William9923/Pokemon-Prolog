@@ -1,6 +1,4 @@
 /* Bag - List of items that player has */
-
-
 /* Counting Items */
 %% Basis
 countBag(_,_):- checkStart(1),!.
@@ -51,13 +49,16 @@ delFromBag(Item, [H|T], NewL):-
 	append([H], LTail, NewL).
 
 /* Print Isi Bag */
+bag:-
+	checkStart(0),
+	write('Game has not started. Type "start." to start the game'),nl,!.
 bag :- 
 	player_bag(L),
 	printBag(L).
 
 %% Basis bag kosong
 printBag([]):-
-	tab(5), write('Tidak ada items di bag!'),!.
+	tab(5), write('Tidak ada items di bag!'),nl,!.
 %% Basis bag 
 printBag([X]):-
 	tab(5), write(X),!.
@@ -68,16 +69,16 @@ printBag([X|T]):-
 /* Dropping items */
 drop(_):-
 	checkStart(0),
-	write('Game belum dimulai. Ketik "start." untuk memulai game.'),nl,!.
+	write('Game has not started. Type "start." to start the game'),nl,!.
 %% drop keyitems
 drop(I):- 
 	player_bag(Bag),
 	searchBag(I,Bag,yes),
 	keyitems(I),
-	write('Professor muncul dari bayanganku!!!'),nl,
-	write('Janganlah membuang item ini.'),nl,
-	write('Item ini akan berguna untukmu.'),nl,
-	write('Professor pun lenyap'),nl,!.
+	write('Professor suddenly appear from the shadow!!!'),nl,
+	write('Do not drop this item.'),nl,
+	write('This item will be useful later on.'),nl,
+	write('Professor suddenly gone'),nl,!.
 %% drop inventory normal items
 drop(I):-
 	player_bag(Bag),
@@ -89,14 +90,14 @@ drop(I):-
 	nl, !.
 %% drop barang yang tidak dimiliki
 drop(_):-
-	write('Kamu tidak memiliki items ini!.'),
+	write('You do not have this item!.'),
 	nl, !.
 
 /* Picking items - Picking items in the ground */
 %% Jika game belum dijalankan
 take:-
 	checkStart(0),
-	write('Game belum dimulai. Ketik "start." untuk memulai game.'),nl,!.
+	write('Game has not started. Type "start." to start the game'),nl,!.
 %% buat yang ngecek jumlah items
 %% Jika bag penuh
 take:-
@@ -110,14 +111,13 @@ take:-
 	letak_item(I,X,Y),
 	retract(letak_item(I,X,Y)),
 	addBag(I),
-	format('Mendapatkan ~a.',[I]),nl,
+	format('Get ~a!!',[I]),nl,
 	!.
 %% Jika tidak ada item yang bisa diambil
 take:-
-	write('Tidak ada item yang bisa diambil disini.'),
+	write('There are no items here.'),
 	nl. 
 
-/* Items Usage */
 
 
 

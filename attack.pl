@@ -19,7 +19,8 @@ attack :-
 	asserta(enemy_monsta_health(EnemyMonsta, NewHealth)),
 	tab(3),write('Monsta has attacked opponent monsta!'),nl,
 	battle_checker,
-	enemy_attack.
+	enemy_attack,
+	status.
 
 %% special_attack : exclusive only when monsta become your slave
 special_attack :-
@@ -52,7 +53,8 @@ special_attack :-
 	retract(special_out(0)),
 	asserta(special_out(1)),
 	battle_checker,
-	enemy_attack.
+	enemy_attack,
+	status.
 
 %% checker if the current monsta die
 battle_checker:- 
@@ -85,7 +87,6 @@ battle_checker:-
 	asserta(in_battle(0)),
 	retract(monsta_out(1)),
 	asserta(monsta_out(0)),
-	
 	!.
 
 battle_checker:-

@@ -1,3 +1,4 @@
+%% ini dynamic siapa yang rubah, gw bunuh lu pada ngehe!!
 :- dynamic(letak_item/3, 
 		letak_player/2,
 		list_monsta/1,
@@ -5,7 +6,14 @@
 		monsta_owned_health/2,
 		player_bag/1, 
 		checkStart/1,
-		checkGym/1
+		checkGym/1,
+		numMonsta/1,
+		enemy_monsta/1,
+		curr_monsta/1,
+		enemy_monsta_health/2,
+		in_battle/1,
+		monsta_out/1,
+		special_out/1
 		).
 
 
@@ -21,12 +29,12 @@
 :- include(pick).
 :- include(run).
 :- include(capture).
-%% :- include(status).
-%% :- include(attack).
+:- include(status).
+:- include(attack).
 :- include(battle).
-%% :- include(attack).
 :- include(move).
 :- include(use).
+:- include(affinity).
 
 
 
@@ -45,6 +53,7 @@ special_out(0).
 enemy_monsta('').
 enemy_monsta_health('',0).
 curr_monsta('').
+numMonsta(1).
 
 
 /* Player starting position */
@@ -79,6 +88,7 @@ keyitems(sugionoBalls).
 keyitems(snickaxs).
 keyitems(pilSemangatTerbaik).
 keyitems(susuKmen).
+
 
 /* initializing items and count item */
 monstaCage_S(0).
