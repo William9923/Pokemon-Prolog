@@ -65,7 +65,7 @@ help :-
 	write(' drop(item).                 : untuk melakukan drop items'),nl,
 	write(' use(item).                  : untuk memakai item yang ada di inventory'),nl,
 	write(' bag.                        : untuk melihat isi inventory/bag pemain'),nl,
-	write(' status_all.                 : untuk melihat semua status monsta yang dimiliki pemain'),nl,
+	write(' status.                     : untuk melihat semua status monsta yang dimiliki pemain'),nl,
 	nl,nl,
 	write('Legends:'), nl,
     write('Player   : P'), nl,

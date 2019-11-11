@@ -54,7 +54,8 @@ bag:-
 	write('Game has not started. Type "start." to start the game'),nl,!.
 bag :- 
 	player_bag(L),
-	printBag(L).
+	write('Bags :'),nl,
+	printBag(L),nl.
 
 %% Basis bag kosong
 printBag([]):-
@@ -101,8 +102,10 @@ take:-
 %% buat yang ngecek jumlah items
 %% Jika bag penuh
 take:-
+	letak_player(X,Y),
+	letak_item(I,X,Y),
 	player_bag(Bag),
-	countBag(Bag, X),
+	,
 	write('Bag penuh!.'),nl,
 	!.
 %% Jika bag belum penuh

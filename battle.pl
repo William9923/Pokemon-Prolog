@@ -54,13 +54,12 @@ battle(X) :-
 
 %% Misahin Battle 
 battle_menu:-
-	tab(3), write('What are you gonna do? (Type with Prolog syntax)'),nl,
+	tab(3),write('What are you gonna do? (Type with Prolog syntax)'),nl,
 	tab(3),write('->'),tab(2), write('fight.'),nl,
 	tab(3),write('->'),tab(2), write('run.'),nl,
 	repeat,
 	tab(3),write('->'),tab(2), read(Ins),
 	battle_user_in_first(Ins),
-	%% balikin ke kondisi semula
 	return_from_battle,
 	end_battle_menu_condition(Ins).
 
@@ -130,6 +129,8 @@ fight :-
 	monsta_out(0),
 	repeat,
 	pick_command,
+	trace,
+	status,
 	tab(3),
 	write(' -> '),
 	read(Ins),nl,

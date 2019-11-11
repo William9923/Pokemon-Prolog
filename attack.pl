@@ -127,7 +127,11 @@ battle_checker:-
 	asserta(list_monsta(NewL)),
 	asserta(curr_monsta('')),
 	retract(monsta_out(1)),
-	asserta(monsta_out(0)),!.
+	asserta(monsta_out(0)),
+	numMonsta(X),
+	X1 is X - 1,
+	retract(numMonsta(X)),
+	asserta(numMonsta(X1)),!.
 
 %% checker for enemy monsta 
 battle_checker:-
