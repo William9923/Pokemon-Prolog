@@ -17,6 +17,7 @@ battle_inst_third(use(_,_)).
 battle_inst_third(bag).
 battle_inst_third(run).
 battle_inst_third(status).
+battle_inst_third(pick(_)).
 
 %% Battle Commands 
 battle_command:-

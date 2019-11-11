@@ -1,6 +1,7 @@
 %% attack for player
 attack :-
     in_battle(1),
+    faster,
 	%% get monsta attack + affinity
 	curr_monsta(OwnedMonsta),
 	monsta_attack(OwnedMonsta, OwnedAttack),
@@ -20,7 +21,33 @@ attack :-
 	tab(3),write('Monsta has attacked opponent monsta!'),nl,
 	battle_checker,
 	enemy_attack,
+	status,!.
+
+attack :-
+    in_battle(1),
+    \+faster,
+    enemy_attack,
+	%% get monsta attack + affinity
+	curr_monsta(OwnedMonsta),
+	monsta_attack(OwnedMonsta, OwnedAttack),
+	monsta_affinity_type(OwnedMonsta, OwnedAffinity),
+	%% get enemies defense + affinity 
+	enemy_monsta(EnemyMonsta),
+	enemy_monsta_health(EnemyMonsta, EnemyHealth),
+	monsta_defense(EnemyMonsta,EnemiesDefense),
+	monsta_affinity_type(EnemyMonsta, EnemyAffinity),
+	%% use the affinity_checker
+	affinity_checker(OwnedAffinity, EnemyAffinity, AffinityBalance),
+	%% decrease the amount of health by the attack
+	Damage is round((OwnedAttack - (0.1 * EnemiesDefense))* AffinityBalance),
+	NewHealth is EnemyHealth - Damage,
+	retract(enemy_monsta_health(EnemyMonsta, EnemyHealth)),
+	asserta(enemy_monsta_health(EnemyMonsta, NewHealth)),
+	tab(3),write('Monsta has attacked opponent monsta!'),nl,
+	battle_checker,
 	status.
+
+
 
 %% special_attack : exclusive only when monsta become your slave
 special_attack :-
@@ -32,6 +59,7 @@ special_attack :-
 special_attack :-
     in_battle(1),
     special_out(0),
+    faster,
 	%% get monsta attack + affinity
 	curr_monsta(OwnedMonsta),
 	monsta_special_attack(OwnedMonsta, OwnedAttack),
@@ -54,7 +82,35 @@ special_attack :-
 	asserta(special_out(1)),
 	battle_checker,
 	enemy_attack,
-	status.
+	status,!.
+
+special_attack :-
+    in_battle(1),
+    special_out(0),
+    \+faster,
+    enemy_attack,
+	%% get monsta attack + affinity
+	curr_monsta(OwnedMonsta),
+	monsta_special_attack(OwnedMonsta, OwnedAttack),
+	monsta_special_attack_name(OwnedMonsta, OwnedAttackName),
+	monsta_affinity_type(OwnedMonsta, OwnedAffinity),
+	%% get enemies defense + affinity 
+	enemy_monsta(EnemyMonsta),
+	enemy_monsta_health(EnemyMonsta, EnemyHealth),
+	monsta_defense(EnemyMonsta,EnemiesDefense),
+	monsta_affinity_type(EnemyMonsta, EnemyAffinity),
+	%% use the affinity_checker
+	affinity_checker(OwnedAffinity, EnemyAffinity, AffinityBalance),
+	%% decrease the amount of health by the attack
+	Damage is round((OwnedAttack - (0.1 * EnemiesDefense))* AffinityBalance),
+	NewHealth is EnemyHealth - Damage,
+	retract(enemy_monsta_health(EnemyMonsta, EnemyHealth)),
+	asserta(enemy_monsta_health(EnemyMonsta, NewHealth)),
+	format('Take this!! ~a',[OwnedAttackName]),nl,
+	retract(special_out(0)),
+	asserta(special_out(1)),
+	battle_checker,
+	status,!.
 
 %% checker if the current monsta die
 battle_checker:- 
@@ -91,8 +147,7 @@ battle_checker:-
 
 battle_checker:-
 	in_battle(1),
-	list_monsta(L),
-	countMonsta(L,X),
+	numMonsta(X),
 	X == 0,
 	retract(enemy_monsta(M)),
 	retract(enemy_monsta_health(M,_)),
@@ -104,3 +159,11 @@ battle_checker:-
 	asserta(monsta_out(0)),
 	die,!.
 battle_checker :- in_battle(1).
+
+%% checking who is faster
+faster:-
+	curr_monsta(OwnM),
+	enemy_monsta(EnemyM),
+	monsta_speed(OwnM,OwnSpeed),
+	monsta_speed(EnemyM,EnemySpeed),
+	OwnSpeed >= EnemySpeed.

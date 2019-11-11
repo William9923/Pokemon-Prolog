@@ -152,7 +152,7 @@ monsta_special_attack_name('GreatOwlmon', 'Owl Screetch').
 monsta_special_attack_name('Slyphmon', 'Whirlwind Fairy').
 monsta_special_attack_name('Legendary EmeraldHawkmon', 'Legendary Cyclone').
 monsta_special_attack_name('Spectermon', 'Specter Curse').
-monsta_special_attack_name('Bansheemon', 'Banshee\'s Wail').
+monsta_special_attack_name('Bansheemon', 'Banshee Wail').
 monsta_special_attack_name('Draugrmon', 'Draugr Aura').
 monsta_special_attack_name('GrimmHoundmon', 'Omen Fairy').
 

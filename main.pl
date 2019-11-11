@@ -103,7 +103,7 @@ susuKmenC(0).
 /* Bag Items */
 %% player_bag([]).
 %% Dummy Bag Items
-player_bag([]).
+player_bag([minimap, monstadex]).
 
 /* Map size */
 edge([1,11],[1,11]). %Map size;
@@ -143,7 +143,7 @@ quit:-
 	asserta(checkStart(0)),
 	write('You have quitted from the monsta great world.'),nl,
 	write('Welcome to the normal world again'), nl,
-	load_internal('default.pl'), !.
+    !.
 quit:- 
 	write('Game belum dimulai. Ketik "start." untuk memulai game.'),nl.
 

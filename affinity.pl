@@ -13,7 +13,7 @@ affinity(ghost,wing,win).
 affinity(wing,ghost,lose).
 affinity(earth,ghost,win).
 affinity(ghost, earth, lose).
-affinity(X,Y,draw).
+affinity(_,_,draw).
 
 affinity_checker(X,X,1):-!.
 affinity_checker(X,Y,Z):-
