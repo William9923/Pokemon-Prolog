@@ -1,27 +1,4 @@
 /* Bag - List of items that player has */
-/* Counting Items */
-%% Basis
-countBag(_,_):- checkStart(1),!.
-countBag([],0).
-%% Rekurens
-countBag([_|T],X):-
-	countBag(T,X1),
-	X is X1 + 1.
-
-/* Searching Bag */
-%% basis 
-searchBag(_,_,_):- checkStart(1),!.
-searchBag(_, [], B):-
-	B = no, !.
-
-%% Rekurens
-%% apabila ditemukan
-searchBag(H, [H|_], B):-
-	B = yes, !.
-%% apabila belum ditemukan
-searchBag(X, [_|T], B):-
-	searchBag(X, T, Btemp),
-	B = Btemp.
 
 /* Menambahkan barang ke bag */
 addBag(_) :- checkStart(1),!.
@@ -75,7 +52,7 @@ drop(_):-
 drop(I):- 
 	trace,
 	player_bag(Bag),
-	searchBag(I,Bag,yes),
+	member(I,Bag),
 	keyitems(I),
 	write('Professor suddenly appear from the shadow!!!'),nl,
 	write('Do not drop this item.'),nl,
@@ -84,7 +61,7 @@ drop(I):-
 %% drop inventory normal items
 drop(I):-
 	player_bag(Bag),
-	searchBag(I,Bag,yes),
+	member(I,Bag),
 	letak_player(X,Y),
 	delItem(I),
 	asserta(letak_item(I,X,Y)),
@@ -104,8 +81,8 @@ take:-
 %% Jika bag penuh
 take:-
 	letak_player(X,Y),
-	letak_item(I,X,Y),
-	player_bag(Bag),
+	letak_item(_,X,Y),
+	player_bag(_),
 	numItems(Z),
 	Z > 10,
 	write('Bag penuh!.'),nl,
