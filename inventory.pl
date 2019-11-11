@@ -50,7 +50,6 @@ drop(_):-
 	write('Game has not started. Type "start." to start the game'),nl,!.
 %% drop keyitems
 drop(I):- 
-	trace,
 	player_bag(Bag),
 	member(I,Bag),
 	keyitems(I),
