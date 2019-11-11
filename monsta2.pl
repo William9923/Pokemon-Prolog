@@ -1,11 +1,4 @@
-/* TYPE EARTH */
-/* Stats: High Defense and Special Attack, Low Speed */
 
-/* TYPE WIND */
-/* Stats: High Speed and Defese, Low Attack*/
-
-/* TYPE REVENANT */
-/* Stats: Very High Health, Low Speed */
 
 monsta('Armadillomon').
 monsta('GiantWormmon').

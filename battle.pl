@@ -1,3 +1,12 @@
+:-dynamic(
+	run_counter/1,
+	capture_counter/1
+	).
+
+%% initial value
+run_counter(0).
+capture_counter(0).
+
 /* Battle Consists of:
 	1. fight / run
 	2. pick
@@ -29,7 +38,8 @@ battle_command:-
 	tab(3), write('> capture.'),nl,
 	tab(3), write('> status.'),nl,
 	tab(3), write('> bag.'),nl,
-	tab(3), write('> use(items).'),nl.
+	tab(3), write('> use(items).'),nl,
+	tab(3), write('> run.'),nl.
 
 battle(_):-
 	checkStart(0),
@@ -51,6 +61,11 @@ battle_menu:-
 	tab(3),write('->'),tab(2), read(Ins),
 	battle_user_in_first(Ins),
 	%% balikin ke kondisi semula
+	return_from_battle,
+	end_battle_menu_condition(Ins).
+
+%% end battle returning condition
+return_from_battle:-
 	retract(curr_monsta(_)),
 	asserta(curr_monsta('')),
 	retract(enemy_monsta(_)),
@@ -58,8 +73,7 @@ battle_menu:-
 	asserta(enemy_monsta('')),
 	asserta(enemy_monsta_health('',0)),
 	retract(special_out(_)),
-	asserta(special_out(0)),
-	end_battle_menu_condition(Ins).
+	asserta(special_out(0)).
 
 %% battle menu condition ends.
 end_battle_menu_condition(fight).

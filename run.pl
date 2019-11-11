@@ -1,21 +1,31 @@
 %% run before fight 
+%% Too much run 
+%% Current run prohibited per turn : 1 run
+run :-
+	run_counter(1),
+	write('You cannot run from this match again this turn'),nl,!.
+
+%% Run away chance before battle : 60 %
 run:-
 	in_battle(0),
 	random(1,11,X),
 	X < 7,
-	tab(3),write('Escape successful !'),nl,!.
+	tab(3),write('Escape successful !'),nl,
+	!.
 run:-
 	in_battle(0),
 	tab(3),write('Escape unsuccessful !'),nl,
 	fight.
 
-%% run in the battle 
+%% run in the battle : successful rate 40%
 %% if run successful
 run :- 
 	in_battle(1),
-	random(1,10,X),
+	random(1,11,X),
 	X < 5,
 	tab(3),write('Escape successful'),nl,
+	retract(run_counter(_)),
+	asserta(run_counter(0)),
 	retract(enemy_monsta(M)),
 	retract(enemy_monsta_health(M,_)),
 	asserta(enemy_monsta('')),
@@ -27,4 +37,6 @@ run :-
 run :-
 	in_battle(1),
 	tab(3),write('Escape unsuccessful!'),nl,
+	retract(run_counter(_)),
+	asserta(run_counter(1)),
 	fight,!.

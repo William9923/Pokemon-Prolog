@@ -1,3 +1,9 @@
+%% Too much usage of monsta MonstaBall
+%% Current too much usage : 1 monstaball per turn
+capture :-
+	capture_counter(1),
+	write('You cannot throw MonstaBall again this turn'),nl,!.
+%% failed capture :  Too much monsta
 capture:-
 	numMonsta(X),
 	X >= 6,
@@ -55,7 +61,35 @@ capture :-
 
 %% failed capture 
 capture:-
+	retract(capture_counter(0)),
+	asserta(capture_counter(1)),
 	write('You failed to capture it'),nl.
+
+%% end battle status
+end_battle :-
+	retract(in_battle(_)),
+	asserta(in_battle(0)),
+	retract(monsta_out(_)),
+	asserta(monsta_out(0)),
+	retract(special_out(_)),
+	asserta(special_out(0)).
+
+%% capture rate for normal monsta 
+capture_rate:-
+	random(1,11,X),
+	X > 5.
+
+%% capture rate for legendary monsta 
+capture_rate_legendary:-
+	random(1,11,X),
+	X > 9.
+
+
+
+
+
+
+
 
 
 %% succesful capture
@@ -80,22 +114,3 @@ capture:-
 %% 	asserta(numMonsta(X1)),
 %% 	!.
 %% capture 
-
-%% end battle status
-end_battle :-
-	retract(in_battle(_)),
-	asserta(in_battle(0)),
-	retract(monsta_out(_)),
-	asserta(monsta_out(0)),
-	retract(special_out(_)),
-	asserta(special_out(0)).
-
-%% capture rate for normal monsta 
-capture_rate:-
-	random(1,10,X),
-	X > 4.
-
-%% capture rate for legendary monsta 
-capture_rate_legendary:-
-	random(1,10,X),
-	X > 7.

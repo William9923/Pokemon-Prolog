@@ -7,6 +7,15 @@
 /* TYPE WATER */
 /* Stats: Very High Special Attack, Low Health*/
 
+/* TYPE EARTH */
+/* Stats: High Defense and Special Attack, Low Speed */
+
+/* TYPE WIND */
+/* Stats: High Speed and Defese, Low Attack*/
+
+/* TYPE REVENANT */
+/* Stats: Very High Health, Low Speed */
+
 monsta('Cactusmon').
 monsta('Willowmon').
 monsta('Vinemon').
