@@ -35,6 +35,7 @@ monsta('Armadillomon').
 monsta('GiantWormmon').
 monsta('Golemon').
 monsta('Gnomemon').
+/monsta('Legendary GrayTitanmon')/
 monsta('Dragonflymon').
 monsta('Falconmon').
 monsta('GreatOwlmon').
@@ -44,95 +45,96 @@ monsta('Spectermon').
 monsta('Bansheemon').
 monsta('Draugrmon').
 monsta('GrimmHoundmon').
+/monsta('Legendary DarkReapermon')/
 
 /* Dictionary Health */
-monsta_health('Cactusmon', 80).
-monsta_health('Willowmon', 80).
-monsta_health('Vinemon', 80).
-monsta_health('Dryadmon', 100).
-monsta_health('Legendary GreatForestmon', 100).
-monsta_health('Cobramon', 80).
-monsta_health('KomodoDragonmon', 80).
-monsta_health('Magmamon', 80).
-monsta_health('Salamandermon', 100).
-monsta_health('Legendary CrimsonDragonmon', 120).
-monsta_health('MantaRaymon', 40).
-monsta_health('Orcamon', 40).
-monsta_health('GatorGatorGatormon', 40).
-monsta_health('Undinemon', 40).
-monsta_health('Legendary AzureSharkmon', 40).
-monsta_health('Armadillomon', 60).
-monsta_health('GiantWormmon', 60).
-monsta_health('Golemon', 60).
-monsta_health('Gnomemon', 60).
-monsta_health('Dragonflymon', 60).
-monsta_health('Falconmon', 60).
-monsta_health('GreatOwlmon', 60).
-monsta_health('Slyphmon', 60).
-monsta_health('Legendary EmeraldHawkmon', 80).
-monsta_health('Spectermon', 100).
-monsta_health('Bansheemon', 100).
-monsta_health('Draugrmon', 100).
-monsta_health('GrimmHoundmon', 120).
+monsta_health('Cactusmon', 200).
+monsta_health('Willowmon', 200).
+monsta_health('Vinemon', 200).
+monsta_health('Dryadmon', 250).
+monsta_health('Legendary GreatForestmon', 250).
+monsta_health('Cobramon', 200).
+monsta_health('KomodoDragonmon', 200).
+monsta_health('Magmamon', 200).
+monsta_health('Salamandermon', 250).
+monsta_health('Legendary CrimsonDragonmon', 300).
+monsta_health('MantaRaymon', 100).
+monsta_health('Orcamon', 100).
+monsta_health('GatorGatorGatormon', 100).
+monsta_health('Undinemon', 100).
+monsta_health('Legendary AzureSharkmon', 100).
+monsta_health('Armadillomon', 150).
+monsta_health('GiantWormmon', 150).
+monsta_health('Golemon', 150).
+monsta_health('Gnomemon', 150).
+monsta_health('Dragonflymon', 150).
+monsta_health('Falconmon', 150).
+monsta_health('GreatOwlmon', 150).
+monsta_health('Slyphmon', 150).
+monsta_health('Legendary EmeraldHawkmon', 200).
+monsta_health('Spectermon', 250).
+monsta_health('Bansheemon', 250).
+monsta_health('Draugrmon', 250).
+monsta_health('GrimmHoundmon', 300).
 
 /* Dictionary Attack */
-monsta_attack('Cactusmon', 40).
-monsta_attack('Willowmon', 40).
-monsta_attack('Vinemon', 40).
-monsta_attack('Dryadmon', 40).
-monsta_attack('Legendary GreatForestmon', 40).
-monsta_attack('Cobramon', 80).
-monsta_attack('KomodoDragonmon', 80).
-monsta_attack('Magmamon', 80).
-monsta_attack('Salamandermon', 100).
-monsta_attack('Legendary CrimsonDragonmon', 120).
-monsta_attack('MantaRaymon', 40).
+monsta_attack('Cactusmon', 50).
+monsta_attack('Willowmon', 50).
+monsta_attack('Vinemon', 50).
+monsta_attack('Dryadmon', 50).
+monsta_attack('Legendary GreatForestmon', 50).
+monsta_attack('Cobramon', 70).
+monsta_attack('KomodoDragonmon', 70).
+monsta_attack('Magmamon', 70).
+monsta_attack('Salamandermon', 80).
+monsta_attack('Legendary CrimsonDragonmon', 90).
+monsta_attack('MantaRaymon', 50).
 monsta_attack('GatorGatorGatormon', 60).
 monsta_attack('Orcamon', 60).
 monsta_attack('Undinemon', 60).
-monsta_attack('Legendary AzureSharkmon', 80).
+monsta_attack('Legendary AzureSharkmon', 70).
 monsta_attack('Armadillomon', 60).
 monsta_attack('GiantWormmon', 60).
-monsta_attack('Golemon', 80).
+monsta_attack('Golemon', 70).
 monsta_attack('Gnomemon', 60).
-monsta_attack('Dragonflymon', 40).
-monsta_attack('Falconmon', 20).
-monsta_attack('GreatOwlmon', 40).
-monsta_attack('Slyphmon', 40).
-monsta_attack('Legendary EmeraldHawkmon', 40).
-monsta_attack('Spectermon', 40).
+monsta_attack('Dragonflymon', 50).
+monsta_attack('Falconmon', 40).
+monsta_attack('GreatOwlmon', 50).
+monsta_attack('Slyphmon', 50).
+monsta_attack('Legendary EmeraldHawkmon', 50).
+monsta_attack('Spectermon', 50).
 monsta_attack('Bansheemon', 60).
 monsta_attack('Draugrmon', 60).
 monsta_attack('GrimmHoundmon', 60).
 
 /* Dictionary Defense */
-monsta_defense('Cactusmon', 100).
-monsta_defense('Willowmon', 80).
+monsta_defense('Cactusmon', 80).
+monsta_defense('Willowmon', 70).
 monsta_defense('Vinemon', 60).
-monsta_defense('Dryadmon', 100).
-monsta_defense('Legendary GreatForestmon', 100).
-monsta_defense('Cobramon', 40).
+monsta_defense('Dryadmon', 80).
+monsta_defense('Legendary GreatForestmon', 80).
+monsta_defense('Cobramon', 50).
 monsta_defense('KomodoDragonmon', 60).
 monsta_defense('Magmamon', 60).
-monsta_defense('Salamandermon', 40).
-monsta_defense('Legendary CrimsonDragonmon', 40).
-monsta_defense('MantaRaymon', 40).
-monsta_defense('GatorGatorGatormon', 80).
+monsta_defense('Salamandermon', 50).
+monsta_defense('Legendary CrimsonDragonmon', 50).
+monsta_defense('MantaRaymon', 50).
+monsta_defense('GatorGatorGatormon', 70).
 monsta_defense('Orcamon', 60).
 monsta_defense('Undinemon', 60).
-monsta_defense('Legendary AzureSharkmon', 80).
-monsta_defense('Armadillomon', 100).
-monsta_defense('GiantWormmon', 80).
-monsta_defense('Golemon', 80).
-monsta_defense('Gnomemon', 100).
-monsta_defense('Dragonflymon', 100).
-monsta_defense('Falconmon', 80).
-monsta_defense('GreatOwlmon', 100).
-monsta_defense('Slyphmon', 100).
-monsta_defense('Legendary EmeraldHawkmon', 120).
+monsta_defense('Legendary AzureSharkmon', 70).
+monsta_defense('Armadillomon', 80).
+monsta_defense('GiantWormmon', 70).
+monsta_defense('Golemon', 70).
+monsta_defense('Gnomemon', 80).
+monsta_defense('Dragonflymon', 80).
+monsta_defense('Falconmon', 70).
+monsta_defense('GreatOwlmon', 80).
+monsta_defense('Slyphmon', 80).
+monsta_defense('Legendary EmeraldHawkmon', 90).
 monsta_defense('Spectermon', 60).
-monsta_defense('Bansheemon', 40).
-monsta_defense('Draugrmon', 80).
+monsta_defense('Bansheemon', 50).
+monsta_defense('Draugrmon', 70).
 monsta_defense('GrimmHoundmon', 60).
 
 /* Dictionary Special Attack */
@@ -166,32 +168,32 @@ monsta_special_attack_name('Draugrmon', 'Draugr Aura').
 monsta_special_attack_name('GrimmHoundmon', 'Omen Fairy').
 
 
-monsta_special_attack('Cactusmon', 80).
-monsta_special_attack('Willowmon', 80).
-monsta_special_attack('Vinemon', 60).
-monsta_special_attack('Dryadmon', 80).
-monsta_special_attack('Legendary GreatForestmon', 100).
+monsta_special_attack('Cactusmon', 60).
+monsta_special_attack('Willowmon', 60).
+monsta_special_attack('Vinemon', 50).
+monsta_special_attack('Dryadmon', 60).
+monsta_special_attack('Legendary GreatForestmon', 70).
 monsta_special_attack('Cobramon', 80).
 monsta_special_attack('KomodoDragonmon', 80).
-monsta_special_attack('Magmamon', 60).
-monsta_special_attack('Salamandermon', 60).
-monsta_special_attack('Legendary CrimsonDragonmon', 80).
-monsta_special_attack('MantaRaymon', 160).
-monsta_special_attack('GatorGatorGatormon', 100).
-monsta_special_attack('Orcamon', 100).
-monsta_special_attack('Undinemon', 140).
-monsta_special_attack('Legendary AzureSharkmon', 160).
-monsta_special_attack('Armadillomon', 80).
-monsta_special_attack('GiantWormmon', 80).
+monsta_special_attack('Magmamon', 70).
+monsta_special_attack('Salamandermon', 80).
+monsta_special_attack('Legendary CrimsonDragonmon', 100).
+monsta_special_attack('MantaRaymon', 100).
+monsta_special_attack('GatorGatorGatormon', 80).
+monsta_special_attack('Orcamon', 80).
+monsta_special_attack('Undinemon', 100).
+monsta_special_attack('Legendary AzureSharkmon', 120).
+monsta_special_attack('Armadillomon', 70).
+monsta_special_attack('GiantWormmon', 70).
 monsta_special_attack('Golemon', 80).
-monsta_special_attack('Gnomemon', 100).
+monsta_special_attack('Gnomemon', 80).
 monsta_special_attack('Dragonflymon', 60).
-monsta_special_attack('Falconmon', 60).
-monsta_special_attack('GreatOwlmon', 60).
-monsta_special_attack('Slyphmon', 60).
-monsta_special_attack('Legendary EmeraldHawkmon', 80).
-monsta_special_attack('Spectermon', 100).
-monsta_special_attack('Bansheemon', 100).
+monsta_special_attack('Falconmon', 40).
+monsta_special_attack('GreatOwlmon', 50).
+monsta_special_attack('Slyphmon', 50).
+monsta_special_attack('Legendary EmeraldHawkmon', 60).
+monsta_special_attack('Spectermon', 70).
+monsta_special_attack('Bansheemon', 80).
 monsta_special_attack('Draugrmon', 60).
 monsta_special_attack('GrimmHoundmon', 60).
 
