@@ -31,15 +31,15 @@ battle_inst_third(pick(_)).
 %% Battle Commands 
 battle_command:-
 	in_battle(1),
-	tab(3), write('Available battle commands: (in Prolog Syntax)'),nl,
-	tab(3), write('> attack.'),nl,
-	tab(3), write('> special_attack.'),nl,
-	tab(3), write('> pick(X).'),nl,
-	tab(3), write('> capture.'),nl,
-	tab(3), write('> status.'),nl,
-	tab(3), write('> bag.'),nl,
-	tab(3), write('> use(items).'),nl,
-	tab(3), write('> run.'),nl.
+	write('Available battle commands: (in Prolog Syntax)'),nl,
+	write('> attack.'),nl,
+	write('> special_attack.'),nl,
+	write('> pick(X).'),nl,
+	write('> capture.'),nl,
+	write('> status.'),nl,
+	write('> bag.'),nl,
+	write('> use(items).'),nl,
+	write('> run.'),nl.
 
 battle(_):-
 	checkStart(0),
@@ -47,18 +47,18 @@ battle(_):-
 	!.
 	
 battle(X) :-
-	tab(3),write('Entering battle phase'),nl,
-	tab(3),format('A wild ~a has appeared !!',[X]), nl,
+	write('Entering battle phase'),nl,
+	format('A wild ~a has appeared !!',[X]), nl,
 	enemy_setup(X),
 	battle_menu.
 
 %% Misahin Battle 
 battle_menu:-
-	tab(3),write('What are you gonna do? (Type with Prolog syntax)'),nl,
-	tab(3),write('->'),tab(2), write('fight.'),nl,
-	tab(3),write('->'),tab(2), write('run.'),nl,
+	write('What are you gonna do? (Type with Prolog syntax)'),nl,
+	write('->'),tab(2), write('fight.'),nl,
+	write('->'),tab(2), write('run.'),nl,
 	repeat,
-	tab(3),write('->'),tab(2), read(Ins),
+	write('->'),tab(2), read(Ins),
 	battle_user_in_first(Ins),
 	return_from_battle,
 	end_battle_menu_condition(Ins).
@@ -115,9 +115,9 @@ fight :-
 	retract(in_battle(0)),
 	asserta(in_battle(1)),
 	monsta_out(0),
+	status,nl,
 	repeat,
 	pick_command,
-	tab(3),
 	write(' -> '),
 	read(Ins),nl,
 	battle_user_in_second(Ins),nl,
@@ -129,9 +129,7 @@ fight :-
 	monsta_out(0),
 	repeat,
 	pick_command,
-	trace,
 	status,
-	tab(3),
 	write(' -> '),
 	read(Ins),nl,
 	battle_user_in_second(Ins),nl,
@@ -143,7 +141,7 @@ fight:-
 	monsta_out(1),
 	repeat,
 	battle_command,
-	tab(3), write(' -> '),
+	write(' -> '),
 	read(Ins), nl,
 	battle_user_in_third(Ins),
 	in_battle(0),!.

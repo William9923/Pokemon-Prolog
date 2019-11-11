@@ -35,7 +35,7 @@ monsta('Armadillomon').
 monsta('GiantWormmon').
 monsta('Golemon').
 monsta('Gnomemon').
-/monsta('Legendary GrayTitanmon')/
+monsta('Legendary GrayTitanmon').
 monsta('Dragonflymon').
 monsta('Falconmon').
 monsta('GreatOwlmon').
@@ -45,7 +45,7 @@ monsta('Spectermon').
 monsta('Bansheemon').
 monsta('Draugrmon').
 monsta('GrimmHoundmon').
-/monsta('Legendary DarkReapermon')/
+monsta('Legendary DarkReapermon').
 
 /* Dictionary Health */
 monsta_health('Cactusmon', 200).
@@ -142,7 +142,7 @@ monsta_special_attack_name('Cactusmon', 'Cactus Spikes').
 monsta_special_attack_name('Willowmon', 'Willow Whomp').
 monsta_special_attack_name('Vinemon', 'Vine Grapple').
 monsta_special_attack_name('Dryadmon', 'Grove Fairy').
-monsta_special_attack_name('Legendary GreatForestmon', 'Legendary Nature\'s Wrath').
+monsta_special_attack_name('Legendary GreatForestmon', 'Legendary Nature Wrath').
 monsta_special_attack_name('Cobramon', 'Cobra Constriction').
 monsta_special_attack_name('KomodoDragonmon', 'Komodo Venom').
 monsta_special_attack_name('Magmamon', 'Magma Blast').

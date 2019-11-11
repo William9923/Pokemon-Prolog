@@ -13,7 +13,7 @@
 wlEffect(0).
 use(_) :-
 	checkStart(0),
-    write('Permainan Belum dimulai'), !.
+    write('Game has not started yet. Type "start." to start the game'), !.
 
 %use whitelily
 use(whiteLilyPerfume) :- 

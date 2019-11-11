@@ -28,7 +28,7 @@ enemy_attack :-
 	NewHealth is OwnedHealth - Damage,
 	retract(monsta_owned_health(OwnedMonsta,OwnedHealth)),
 	asserta(monsta_owned_health(OwnedMonsta,NewHealth)),
-	tab(3),write('Opponent has attacked your monsta!'),nl,
+	write('Opponent has attacked your monsta!'),nl,
 	battle_checker,
 	next_turn.
 

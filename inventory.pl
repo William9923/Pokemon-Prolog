@@ -59,12 +59,12 @@ bag :-
 
 %% Basis bag kosong
 printBag([]):-
-	tab(5), write('Tidak ada items di bag!'),nl,!.
+	write('Tidak ada items di bag!'),nl,!.
 %% Basis bag 
 printBag([X]):-
-	tab(5), write(X),!.
+	write('-> '),write(X),!.
 printBag([X|T]):-
-	tab(5), write(X),nl,
+	write('-> '),write(X),nl,
 	printBag(T).
 
 /* Dropping items */
@@ -73,6 +73,7 @@ drop(_):-
 	write('Game has not started. Type "start." to start the game'),nl,!.
 %% drop keyitems
 drop(I):- 
+	trace,
 	player_bag(Bag),
 	searchBag(I,Bag,yes),
 	keyitems(I),
@@ -105,7 +106,8 @@ take:-
 	letak_player(X,Y),
 	letak_item(I,X,Y),
 	player_bag(Bag),
-	,
+	numItems(Z),
+	Z > 10,
 	write('Bag penuh!.'),nl,
 	!.
 %% Jika bag belum penuh

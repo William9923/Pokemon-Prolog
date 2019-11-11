@@ -5,17 +5,19 @@ status :-
 	monsta_out(1),
 	enemy_monsta(X),
 	enemy_monsta_health(X,EHealth),
+	monsta_health(X,ETotalHealth),
 	monsta_affinity_type(X,EType),
 	curr_monsta(Y),
 	monsta_owned_health(Y,Health),
 	monsta_affinity_type(Y,OType),
+	monsta_health(Y,OTotalHealth),
 	tab(3),write('Current Monsta :'),nl,
 	tab(3), format('~a',[Y]),nl,
-	tab(3),format('Health : ~d',[Health]),nl,
+	tab(3),format('Health : ~d',[Health]),format('/~d',[OTotalHealth]),nl,
 	tab(3), format('Type : ~a',[OType]),nl,
 	tab(3),write('Opponent Monsta :'),nl,
 	tab(3), format('~a',[X]),nl,
-	tab(3),format('Health : ~d',[EHealth]),nl,
+	tab(3),format('Health : ~d',[EHealth]),format('/~d',[ETotalHealth]),nl,
 	tab(3), format('Type : ~a',[EType]),nl,nl,!.
 
 %% showing status second battle phase battle
@@ -41,7 +43,8 @@ printStatus([H|T]):-
 	monsta(H),
 	write('->'),tab(1),format('~a',[H]),nl,
 	monsta_owned_health(H,Health),
-	tab(3),format('Health : ~d',[Health]),nl,
+	monsta_health(H,TotalHealth),
+	tab(3),format('Health : ~d',[Health]),format('/~d',[TotalHealth]),nl,
 	monsta_affinity_type(H,Type),
 	tab(3),format('Type :~a',[Type]),nl,
 	printStatus(T),!.

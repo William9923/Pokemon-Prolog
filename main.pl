@@ -56,6 +56,7 @@ enemy_monsta('').
 enemy_monsta_health('',0).
 curr_monsta('').
 numMonsta(1).
+numItems(1).
 
 
 /* Player starting position */
@@ -65,7 +66,7 @@ letak_player(10,10).
 /* Player First Monsta*/
 list_monsta(['Dragonflymon']).
 monsta_owned('Dragonflymon').
-monsta_owned_health('Dragonflymon',60).
+monsta_owned_health('Dragonflymon',30).
 
 %% gym location : (8,5)
 gym(8,5).
@@ -105,7 +106,7 @@ susuKmenC(0).
 /* Bag Items */
 %% player_bag([]).
 %% Dummy Bag Items
-player_bag([minimap, monstadex]).
+player_bag([whiteLilyPerfume]).
 
 /* Map size */
 edge([1,11],[1,11]). %Map size;
@@ -127,11 +128,15 @@ drop_monsta(M):-
 drop_monsta(M):-
 	format('You have release ~a',[M]),nl,
 	list_monsta(L),
+	numMonsta(X),
+	X1 is X - 1,
 	delete(L,M,NewL),
 	retract(list_monsta(L)),
 	asserta(list_monsta(NewL)),
 	retract(monsta_owned(M)),
-	retract(monsta_owned_health(M,_)).
+	retract(monsta_owned_health(M,_)),
+	retract(numMonsta(X)),
+	asserta(numMonsta(X1)).
 
 /***** PLAYER'S Tokeomon ALIVE/DEATH STATE *****/
 /* Game over */

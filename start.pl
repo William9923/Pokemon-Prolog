@@ -69,6 +69,7 @@ help :-
 	nl,nl,
 	write('Legends:'), nl,
     write('Player   : P'), nl,
+    write('Home     : H'), nl,
 	write('Gym      : G'), nl,
     write('Item     : I'), nl,
     write('Cave     : C'), nl,
