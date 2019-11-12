@@ -43,6 +43,8 @@
 :- initialization(nl).
 :- initialization(write('Type "start." to start the game!')).
 :- initialization(nl).
+/* 'Type "start" to begin' */
+
 
 %% Initialize the start game state
 checkStart(0).
@@ -147,6 +149,9 @@ die :-
 	write('You DIED - Game Over'),nl,
 	write('Then you realized that you are in a dream'),nl,
 	quit, abort.
+/* 'The monsta eats your legs' */
+/* 'You suddenly lose all feeling in your chest and breathe your last breath.' */
+/* 'YOU DIED - GAME OVER' */
 
 /* Win Games - catch 2 legendary*/
 win :- 
@@ -160,7 +165,12 @@ win :-
 	retract(checkStart(1)),
 	asserta(checkStart(0)),
 	abort.
-
+/* 'You have collected two of the most powerful monstas in the world' */
+/* 'But then, you realized that monstas aren't actually as bad as you were led to believe' */
+/* 'You were manipulated by the professor to capture these creatures' */
+/* 'Using the power of the Legendaries, you manage to defeat the professor' */
+/* 'From now on, you will protect the monstas' */
+/* 'THE END' */
 
 /* Quitting games*/
 quit:-
@@ -172,38 +182,7 @@ quit:-
     !.
 quit:- 
 	write('Game belum dimulai. Ketik "start." untuk memulai game.'),nl.
+/* 'You have left the great MonstaWorld' */
+/* 'Welcome back to regular reality' */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* 'The game hasn't even started yet, type "start" to begin' */

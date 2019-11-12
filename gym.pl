@@ -3,7 +3,9 @@ heal :-
 	write('Please wait for a minute!!'),nl,
 	heal_monsta(L),
 	write('Thank you for waiting, all your monsta have been healed!!').
-
+/* 'This will only take a minute.' */
+/* 'A minute later...' */
+/* 'Your monstas have been healed!' */
 %% Basis
 heal_monsta([]).
 %% Rekurens

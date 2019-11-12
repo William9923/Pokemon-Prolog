@@ -21,6 +21,7 @@ pick(X):-
 	in_battle(1),
 	curr_monsta(X),
 	write('You cannot switch to that monsta!'),nl,!.
+/* 'You are already using that monsta!' */
 
 %% switch of your monsta
 pick(X):- 
@@ -33,7 +34,8 @@ pick(X):-
 	asserta(curr_monsta(X)),
 	tab(3),write('Switched Monsta'),nl,!.
 
-%% switch to the monsta you don't have
+%% switch to the monsta you dont have
 pick(_):-
 	in_battle(1),
 	write('You do not have that monsta as your slave'),nl.
+/* 'You do not have that monsta!' */

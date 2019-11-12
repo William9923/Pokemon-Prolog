@@ -7,6 +7,7 @@ tes2(X):-
 	item(X),
 	format('Kamu menjatuhkan ~a.',[X]),
 	nl.
+/* 'You dropped ~a' */
 
 %% randomizer
 randomPercentage(X,Bool):-
