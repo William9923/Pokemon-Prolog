@@ -3,7 +3,7 @@
 pick(X):-
 	in_battle(1),
 	\+monsta(X),
-	tab(3), write('Invalid monsta'),nl,!.
+	write('Invalid monsta'),nl,!.
 %% pick first monsta:
 pick(X):-
 	in_battle(1),
@@ -12,7 +12,7 @@ pick(X):-
 	member(X,L),
 	retract(curr_monsta(_)),
 	asserta(curr_monsta(X)),
-	tab(3), format('Lets go ~a',[X]),nl,
+	format('Lets go ~a',[X]),nl,
 	retract(monsta_out(0)),
 	asserta(monsta_out(1)),!.
 
@@ -32,7 +32,7 @@ pick(X):-
 	\+retract(curr_monsta('')),
 	retract(curr_monsta(_)),
 	asserta(curr_monsta(X)),
-	tab(3),write('Switched Monsta'),nl,!.
+	write('Switched Monsta'),nl,!.
 
 %% switch to the monsta you dont have
 pick(_):-

@@ -37,7 +37,7 @@
 :- include(move).
 :- include(use).
 :- include(affinity).
-
+:- include(legendary).
 
 
 :- initialization(nl).
@@ -57,18 +57,26 @@ special_out(0).
 enemy_monsta('').
 enemy_monsta_health('',0).
 curr_monsta('').
-numMonsta(1).
+numMonsta(5).
 numItems(1).
 
 
 /* Player starting position */
 %% player current position, initial : (11,3)
-letak_player(10,10).
+letak_player(18,16).
 
 /* Player First Monsta*/
-list_monsta(['Dragonflymon']).
+list_monsta(['Dragonflymon','Draugrmon','Cobramon','MantaRaymon','Undinemon']).
 monsta_owned('Dragonflymon').
-monsta_owned_health('Dragonflymon',30).
+monsta_owned('Draugrmon').
+monsta_owned('Cobramon').
+monsta_owned('MantaRaymon').
+monsta_owned('Undinemon').
+monsta_owned_health('Dragonflymon',150).
+monsta_owned_health('Draugrmon',250).
+monsta_owned_health('Cobramon',200).
+monsta_owned_health('MantaRaymon',100).
+monsta_owned_health('Undinemon',100).
 
 %% gym location : (8,5)
 gym(8,5).
@@ -85,19 +93,19 @@ letak_item(snickaxs,7,5).
 letak_item(pilSemangatTerbaik,8,1).
 letak_item(susuKmen,10,1).
 
-keyitems(monstaCage_S).
-keyitems(whiteLilyPerfume).
-keyitems(permenyuvi).
-keyitems(panahApatis).
-keyitems(sugionoBalls).
-keyitems(snickaxs).
-keyitems(pilSemangatTerbaik).
-keyitems(susuKmen).
+items(monstaCage_S).
+items(whiteLilyPerfume).
+items(permenyuvi).
+items(panahApatis).
+items(sugionoBalls).
+items(snickaxs).
+items(pilSemangatTerbaik).
+items(susuKmen).
 
 
 /* initializing items and count item */
 monstaCage_S(0).
-whiteLilyPerfumeC(3).
+whiteLilyPerfumeC(100).
 permenyuviC(0).
 panahApatisC(0).
 sugionoBallsC(0).
@@ -156,11 +164,11 @@ die :-
 /* Win Games - catch 2 legendary*/
 win :- 
 	nl,
-	write('You have collected 2 most powerful tokemon in the whole universe'), nl,
-	write('But, then you realized that all tokemon is actually really good'),nl,
-	write('You were manipulated by the evil professor to capture all this good creature'),nl,
-	write('Using those 2 legendary tokemon, you destroy the professor and all his creation'), nl,
-	write('From now on, you will protect the safety of all tokemon'), nl,
+	write('You have defeated 3 most powerful monsta in the whole MonstaWorld universe'), nl,
+	write('But, then you realized that all monsta is actually really good'),nl,
+	write('You were manipulated by the evil professor Sugiono to capture all this good creature'),nl,
+	write('Using the power given by those 3 legendary monsta, you destroy the professor and all his creation'), nl,
+	write('From now on, you will protect the safety of all monsta'), nl,
 	write('THE END'),
 	retract(checkStart(1)),
 	asserta(checkStart(0)),

@@ -27,7 +27,7 @@ battle_inst_third(bag).
 battle_inst_third(run).
 battle_inst_third(status).
 battle_inst_third(pick(_)).
-
+battle_inst_third(list).
 %% Battle Commands 
 battle_command:-
 	in_battle(1),
@@ -37,6 +37,7 @@ battle_command:-
 	write('> pick(X).'),nl,
 	write('> capture.'),nl,
 	write('> status.'),nl,
+	write('> list.'),nl,
 	write('> bag.'),nl,
 	write('> use(items).'),nl,
 	write('> run.'),nl.

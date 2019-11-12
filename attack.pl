@@ -112,6 +112,7 @@ special_attack :-
 	battle_checker,
 	status,!.
 
+
 %% checker if the current monsta die
 battle_checker:- 
 	in_battle(1),
@@ -119,6 +120,8 @@ battle_checker:-
 	curr_monsta(M),
 	monsta_owned_health(M,Health),
 	Health =< 0,
+	write('Oh no, your monsta unable to continue living!'),nl,
+	write('Your monsta died!!'),nl,
 	delete(L,M,NewL),
 	retract(monsta_owned(M)),
 	retract(monsta_owned_health(M,Health)),
@@ -134,12 +137,38 @@ battle_checker:-
 	asserta(numMonsta(X1)),
 	die_checker,!.
 
+%% battle_checker (for legendary only)
+battle_checker:-
+	in_battle(1),
+	enemy_monsta(M),
+	member(M,['Legendary GreatForestmon','Legendary CrimsonDragonmon','Legendary AzureSharkmon']),
+	enemy_monsta_health(M,Health),
+	Health =< 0,
+	write('You have defeated one of the almighty Legendary Monsta'),nl,
+	write('You win!!'),nl,
+	retract(enemy_monsta(M)),
+	retract(enemy_monsta_health(M,_)),
+	asserta(enemy_monsta('')),
+	asserta(enemy_monsta_health('',0)),
+	retract(in_battle(1)),
+	asserta(in_battle(0)),
+	retract(monsta_out(1)),
+	asserta(monsta_out(0)),
+	legendary_to_beat(Z),
+	Z1 is Z - 1,
+	retract(legendary_to_beat(Z)),
+	asserta(legendary_to_beat(Z1)),
+	!.
+
 %% checker for enemy monsta 
 battle_checker:-
 	in_battle(1),
 	enemy_monsta(M),
+	\+member(M,['Legendary GreatForestmon','Legendary CrimsonDragonmon','Legendary AzureSharkmon']),
 	enemy_monsta_health(M,Health),
 	Health =< 0,
+	write('Enemy Monsta unable to continue living'),nl,
+	write('You win!!'),nl,
 	retract(enemy_monsta(M)),
 	retract(enemy_monsta_health(M,_)),
 	asserta(enemy_monsta('')),
@@ -156,6 +185,7 @@ die_checker:-
 	in_battle(1),
 	numMonsta(X),
 	X == 0,
+	write('Oh no, that was your last monsta'),nl,
 	retract(enemy_monsta(M)),
 	retract(enemy_monsta_health(M,_)),
 	asserta(enemy_monsta('')),

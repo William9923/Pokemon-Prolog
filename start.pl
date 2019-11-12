@@ -11,6 +11,7 @@ inst(drop_monsta(_)).
 inst(use(_)).
 inst(status).
 inst(bag).
+inst(heal).
 
 /* Start Game Function */
 %% if game has already started
@@ -21,6 +22,7 @@ start:-
 	checkStart(0),
 	retract(checkStart(0)),
 	asserta(checkStart(1)),
+	start_story,
 	start_commands, nl,
 	help, nl, nl,
 	start_menu.
@@ -46,10 +48,12 @@ user_in(X):-
 
 /* Prosedur Pemanggilan Menu Utama Games */
 start_commands:-
-	write('MonstaWorld'),nl,
+	write(' _____             _          _ _ _         _   _ '),nl,
+	write('|     |___ ___ ___| |_ ___   | | | |___ ___| |_| |'),nl,
+	write('| | | | . |   |_ -|  _| . |  | | | | . |  _| | . |'),nl,
+	write('|_|_|_|___|_|_|___|_| |__,|  |_____|___|_| |_|___|'),nl,nl,
 	write('Welcome to this monster battling games'),nl,
-	write('This is an adventure game, writen in prolog programming languange.'),nl,
-	write('The purpose of this game is to kill the 2 legendary Monsta and get your memory back!'),nl.
+	write('This is an adventure game, writen in prolog programming languange.'),nl.
 
 help :-
 	write('Please enter the command below using Prolog syntax'),nl,
@@ -59,17 +63,56 @@ help :-
 	write(' quit.                       : to exit from the game.'),nl,
 	write(' w.,s.,a.,d.                 : to move player based on the wind direction.'),nl,
 	write(' map.                        : to print the map of MonstaWorld'),nl,
-	write(' take.                       : untuk mengambil items yang ada di lantai posisi pemain'),nl,
-	write(' drop_monsta(monsta)         : untuk melepaskan monsta ke dunia MonstaWorld kembali.'),nl,
-	write(' drop(item).                 : untuk melakukan drop items'),nl,
-	write(' use(item).                  : untuk memakai item yang ada di inventory'),nl,
-	write(' bag.                        : untuk melihat isi inventory/bag pemain'),nl,
-	write(' status.                     : untuk melihat semua status monsta yang dimiliki pemain'),nl,
+	write(' take.                       : to take items in the floor'),nl,
+	write(' drop_monsta(monsta)         : to release monsta back to their world.'),nl,
+	write(' drop(item).                 : to drop certain items.'),nl,
+	write(' use(item).                  : to use items in your bag.'),nl,
+	write(' bag.                        : to see all items in player bag.'),nl,
+	write(' status.                     : to see status of player.'),nl,
 	nl,nl,
 	write('Legends:'), nl,
-    write('Player   : P'), nl,
-    write('Home     : H'), nl,
-	write('Gym      : G'), nl,
-    write('Item     : I'), nl,
-    write('Cave     : C'), nl,
-    write('River    : R'), nl.
+    write('Player     : P'), nl,
+    write('Home       : H'), nl,
+	write('Gym        : G'), nl,
+    write('Item       : I'), nl,
+    write('Cave       : C'), nl,
+    write('River      : ~'), nl,
+    write('Forest     : ^'), nl,
+    write('Wasteland  : _'), nl,
+    write('Grassfield : v'), nl,
+    write('Dessert    : .'), nl.
+
+countdown(0):-
+	write('').
+countdown(X):-
+	write('...'),nl,
+	sleep(1),
+	X1 is X - 1,
+	countdown(X1).
+
+start_story :- 
+	write('You were awake in a unfamiliar room.'),nl,
+	write('It is really strange, since you cannot remember anything.'),nl,
+	write('Press c to continue (Of course, you must use prolog syntax)'),nl,read(_),
+	write('   you here something rustling near you..'),nl,
+	countdown(2),write('You realize that you were never alone in that room!!'),nl,
+	write('When you try to look closer to the other person, it seems mad at you !!.'), nl,
+	write('He suddenly approaching you and talk to you.'),nl,
+	write('"So, you were awaken", said that man'),nl,
+	write('Press c to continue (Of course, you must use prolog syntax)'),nl,read(_),
+	write('Suddenly, you panicked and ask where you were right now'),nl,
+	write('"W-wh-where am I?? How can I be here", you shouted'),nl,
+	write('"Omereto gazaimas, my name is Prof Sugiono. You were here because you were summoned by 3 legendary monsta. I am here to help you regain your memory", said the man'),nl,
+	write('Press c to continue (Of course, you must use prolog syntax)'),nl,read(_),
+	write('"Sugiono.., I think I ever heard that name.", I told myself'),nl,
+	write('"So, how can you help me?", I asked the Professor'),nl,
+	write('"Simple, you should KILL all 3 legendary monsta from this world, that way you can restore your memory back."'),nl,
+	write('"'),countdown(2), write('make sense. If I want to escape from this world. I just need to KILL all those who summoned me"'),nl,
+	write('"Alright, since right now you do not have anything to battle with, I will help you. You can use my best buddy Dragonflymon", said Sugiono'),nl,
+	write('"So where can I find the legendary monsta"'),nl,
+	write('"There should be 3 legendary cave in this world. Go there and KILL them"'),nl,
+	write('After that, I am set of to a journey to regain my loss memory and to go back to my world!!'),nl,countdown(5),nl.
+
+
+
+  

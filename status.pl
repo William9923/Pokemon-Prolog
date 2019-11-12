@@ -27,7 +27,6 @@ status :-
 	write('Monsta Status : '),nl,
 	printStatus(L),
 	!.
-
 %% showing status outside the battle phase 
 status :- 
 	in_battle(0),
@@ -37,6 +36,13 @@ status :-
 	bag,
 	legendary_to_beat(X),
 	write('Legendary Monsta to beat : '), write(X), nl.
+
+list :-
+	in_battle(1),
+	monsta_out(1),
+	list_monsta(L),
+	write('Monsta List:'),
+	printStatus(L),nl,!.
 	
 printStatus([]).
 printStatus([H|T]):-
