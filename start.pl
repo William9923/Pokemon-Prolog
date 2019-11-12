@@ -17,6 +17,8 @@ inst(bag).
 start:- 
 	checkStart(1),
 	write('You have started Monsta along time ago. Quit the game to exit the game.'),nl.
+
+
 %% if game hasn't started yet
 start:-
 	checkStart(0),
