@@ -16,8 +16,8 @@ inst(bag).
 %% if game has already started
 start:- 
 	checkStart(1),
-	write('You have started Monsta along time ago. Quit the game to exit the game.'),nl.
-%% if game hasn't started yet
+	write('You have started Monsta a long time ago. Quit the game to exit the game.'),nl.
+%% if game hasnt started yet
 start:-
 	checkStart(0),
 	retract(checkStart(0)),

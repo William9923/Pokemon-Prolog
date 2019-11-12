@@ -8,13 +8,14 @@ status :-
 	monsta_owned_health(Y,Health),
 	tab(3),format('Your monsta health ~d',[Health]),nl,
 	tab(3),format('Your opponent health ~d', [EHealth]),nl,!.
-
+/*' Your Monsta Health: ~d'*/
+/*' Opponent Monsta Health: ~d'*/
 %% showing status outside battle
 status :- 
 	list_monsta(L),
 	write('Your monsta status : '),nl,
 	printStatus(L),nl,!.
-
+/*' Your Monsta Status: '*/
 printStatus([]).
 printStatus([H|T]):-
 	monsta(H),

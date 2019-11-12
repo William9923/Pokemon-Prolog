@@ -31,6 +31,7 @@ enemy_attack :-
 	tab(3),write('Opponent has attacked your monsta!'),nl,
 	battle_checker,
 	next_turn.
+/* 'A challenger has appeared!. Defend yourself!.' */
 
 %% for applying next turn condition
 next_turn:-

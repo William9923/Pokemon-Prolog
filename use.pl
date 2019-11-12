@@ -14,12 +14,12 @@ wlEffect(0).
 use(_) :-
 	checkStart(0),
     write('Permainan Belum dimulai'), !.
-
+/* The game hasn't started yet.*/
 %use whitelily
 use(whiteLilyPerfume) :- 
                     whiteLilyPerfumeC(0),
                     write('Kamu tidak mempunyai item tersebut'),!.
-
+/* 'You don't have that item' */
 use(whiteLilyPerfume) :-
                     whiteLilyPerfumeC(Y),
                     retract(whiteLilyPerfumeC(Y)),
@@ -30,6 +30,7 @@ use(whiteLilyPerfume) :-
                     Xnew is X+4,
                     asserta(wlEffect(Xnew)),
                     write('Bau harum menyerbak keluar dari tubuhmu'),!.
+/* 'A good smell wafts from your body ' */
 /*
 %use permenyuvi
 use(permenyuvi) :-
