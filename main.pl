@@ -8,12 +8,14 @@
 		checkStart/1,
 		checkGym/1,
 		numMonsta/1,
+		numItems/1,
 		enemy_monsta/1,
 		curr_monsta/1,
 		enemy_monsta_health/2,
 		in_battle/1,
 		monsta_out/1,
-		special_out/1
+		special_out/1,
+		legendary_to_beat/1
 		).
 
 
@@ -47,7 +49,7 @@
 %% Initialize the start game state
 checkStart(0).
 checkGym(0).
-
+legendary_to_beat(3).
 %% Initial value
 in_battle(0).
 monsta_out(0).
@@ -56,6 +58,7 @@ enemy_monsta('').
 enemy_monsta_health('',0).
 curr_monsta('').
 numMonsta(1).
+numItems(1).
 
 
 /* Player starting position */
@@ -65,7 +68,7 @@ letak_player(10,10).
 /* Player First Monsta*/
 list_monsta(['Dragonflymon']).
 monsta_owned('Dragonflymon').
-monsta_owned_health('Dragonflymon',60).
+monsta_owned_health('Dragonflymon',30).
 
 %% gym location : (8,5)
 gym(8,5).
@@ -105,7 +108,7 @@ susuKmenC(0).
 /* Bag Items */
 %% player_bag([]).
 %% Dummy Bag Items
-player_bag([minimap, monstadex]).
+player_bag([whiteLilyPerfume]).
 
 /* Map size */
 edge([1,11],[1,11]). %Map size;
@@ -113,6 +116,29 @@ edgeOffset([X1,X2],[Y1,Y2]) :-
 	edge([XEdge1,XEdge2],[YEdge1,YEdge2]),
 	X1 is XEdge1-1, X2 is XEdge2+1,
 	Y1 is YEdge1-1, Y2 is YEdge2+1.
+
+/* Drop monsta */
+%% if only 1 monsta owned
+drop_monsta(_) :-
+	numMonsta(1),
+	write('You cannot release your last monsta.'),nl,!.
+%% do not have that monsta
+drop_monsta(M):-
+	\+monsta_owned(M),
+	write('You do not have that monsta.'),nl,!.
+%% bisa delete monsta
+drop_monsta(M):-
+	format('You have release ~a',[M]),nl,
+	list_monsta(L),
+	numMonsta(X),
+	X1 is X - 1,
+	delete(L,M,NewL),
+	retract(list_monsta(L)),
+	asserta(list_monsta(NewL)),
+	retract(monsta_owned(M)),
+	retract(monsta_owned_health(M,_)),
+	retract(numMonsta(X)),
+	asserta(numMonsta(X1)).
 
 /***** PLAYER'S Tokeomon ALIVE/DEATH STATE *****/
 /* Game over */

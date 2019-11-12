@@ -24,11 +24,11 @@ enemy_attack :-
 	%% use the affinity_checker
 	affinity_checker(EnemyAffinity, OwnedAffinity, AffinityBalance),
 	%% decrease the amount of health by the attack
-	Damage is round((EnemyAttack - (0.3 * OwnedDefense))* AffinityBalance),
+	Damage is round((EnemyAttack - (0.2 * OwnedDefense))* AffinityBalance),
 	NewHealth is OwnedHealth - Damage,
 	retract(monsta_owned_health(OwnedMonsta,OwnedHealth)),
 	asserta(monsta_owned_health(OwnedMonsta,NewHealth)),
-	tab(3),write('Opponent has attacked your monsta!'),nl,
+	write('Opponent has attacked your monsta!'),nl,
 	battle_checker,
 	next_turn.
 /* 'A challenger has appeared!. Defend yourself!.' */

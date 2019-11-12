@@ -18,7 +18,7 @@ attack :-
 	NewHealth is EnemyHealth - Damage,
 	retract(enemy_monsta_health(EnemyMonsta, EnemyHealth)),
 	asserta(enemy_monsta_health(EnemyMonsta, NewHealth)),
-	tab(3),write('Monsta has attacked opponent monsta!'),nl,
+	write('Monsta has attacked opponent monsta!'),nl,
 	battle_checker,
 	enemy_attack,
 	status,!.
@@ -43,7 +43,7 @@ attack :-
 	NewHealth is EnemyHealth - Damage,
 	retract(enemy_monsta_health(EnemyMonsta, EnemyHealth)),
 	asserta(enemy_monsta_health(EnemyMonsta, NewHealth)),
-	tab(3),write('Monsta has attacked opponent monsta!'),nl,
+	write('Monsta has attacked opponent monsta!'),nl,
 	battle_checker,
 	status.
 
@@ -53,8 +53,8 @@ attack :-
 special_attack :-
 	in_battle(1),
 	special_out(1),
-	tab(3), write('Your monsta tried to use the special attack'),nl,
-	tab(3), write('But it failed'),nl,!.
+	write('Your monsta tried to use the special attack'),nl,
+	write('But it failed'),nl,!.
 
 special_attack :-
     in_battle(1),
@@ -127,7 +127,12 @@ battle_checker:-
 	asserta(list_monsta(NewL)),
 	asserta(curr_monsta('')),
 	retract(monsta_out(1)),
-	asserta(monsta_out(0)),!.
+	asserta(monsta_out(0)),
+	numMonsta(X),
+	X1 is X - 1,
+	retract(numMonsta(X)),
+	asserta(numMonsta(X1)),
+	die_checker,!.
 
 %% checker for enemy monsta 
 battle_checker:-
@@ -145,7 +150,9 @@ battle_checker:-
 	asserta(monsta_out(0)),
 	!.
 
-battle_checker:-
+battle_checker :- in_battle(1).
+
+die_checker:-
 	in_battle(1),
 	numMonsta(X),
 	X == 0,
@@ -155,10 +162,7 @@ battle_checker:-
 	asserta(enemy_monsta_health('',0)),
 	retract(in_battle(1)),
 	asserta(in_battle(0)),
-	retract(monsta_out(1)),
-	asserta(monsta_out(0)),
 	die,!.
-battle_checker :- in_battle(1).
 
 %% checking who is faster
 faster:-

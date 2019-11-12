@@ -17,8 +17,12 @@ affinity(_,_,draw).
 
 affinity_checker(X,X,1):-!.
 affinity_checker(X,Y,Z):-
+	affinity(X,Y,draw),
+	Z is 1,!.
+affinity_checker(X,Y,Z):-
 	affinity(X,Y,win),
 	Z is 2,!.
 affinity_checker(X,Y,Z):-
 	affinity(X,Y,lose),
 	(Z is 0.5),!.
+affinity_checker(_,_,1).
