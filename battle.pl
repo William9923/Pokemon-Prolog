@@ -48,7 +48,7 @@ battle(_):-
 	!.
 	
 battle(X) :-
-	write('Entering battle phase'),nl,
+	battle_text,
 	format('A wild ~a has appeared !!',[X]), nl,
 	enemy_setup(X),
 	battle_menu.
@@ -141,18 +141,19 @@ fight:-
 	in_battle(1),
 	monsta_out(1),
 	repeat,
-	battle_command,
+	(monsta_out(1) -> battle_command; pick_command),
 	write(' -> '),
 	read(Ins), nl,
-	battle_user_in_third(Ins),
+	(monsta_out(1)->battle_user_in_third(Ins); battle_user_in_second(Ins)),
 	in_battle(0),!.
 
 
 
 
-
-
-
+battle_text:-
+	write(' =========='),nl,
+	write('||BATTLE!!||'),nl,
+	write(' =========='),nl.
 
 
 

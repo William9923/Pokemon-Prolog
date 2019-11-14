@@ -50,7 +50,7 @@ w :-
 w :- 
     letak_player(X,Y),
     YNew is Y + 1,
-    terrain(cave, X,YNew),
+    cave(X,YNew),
     legendary_to_beat(Z),
     retract(letak_player(X,Y)),
     asserta(letak_player(X,YNew)),
@@ -129,7 +129,7 @@ s :-
 s :- 
     letak_player(X,Y),
     YNew is Y - 1,
-    terrain(cave, X,YNew),
+    cave(X,YNew),
     legendary_to_beat(Z),
     retract(letak_player(X,Y)),
     asserta(letak_player(X,YNew)),
@@ -209,7 +209,7 @@ d :-
 d :- 
     letak_player(X,Y),
     XNew is X + 1,
-    terrain(cave, XNew,Y),
+    cave(XNew,Y),
     legendary_to_beat(Z),
     retract(letak_player(X,Y)),
     asserta(letak_player(XNew,Y)),
@@ -288,7 +288,7 @@ a :-
 a :- 
     letak_player(X,Y),
     XNew is X - 1,
-    terrain(cave, XNew,Y),
+    cave(XNew,Y),
     legendary_to_beat(Z),
     retract(letak_player(X,Y)),
     asserta(letak_player(XNew,Y)),

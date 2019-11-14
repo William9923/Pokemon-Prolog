@@ -5,29 +5,41 @@ call_legendary:-
 	checkStart(1),
 	legendary_to_beat(Z),
 	Z =:= 3,
-	M = 'Legendary GreatForestmon',	
+	M = 'Legendary GreatForestmon',
+	asserta(vs_legend),
 	battle(M),nl,
 	dialog1,balik_basecamp,
 	retract(checkGym(_)),
-	asserta(checkGym(0)),!.
+	asserta(checkGym(0)),
+	retract(cave(_,_)),
+	asserta(cave(5,12)),
+	retract(vs_legend),!.
 
 call_legendary:-
 	checkStart(1),
 	legendary_to_beat(Z),
 	Z =:= 2,
 	M = 'Legendary CrimsonDragonmon',
+	asserta(vs_legend),
 	battle(M),nl,
 	dialog2,balik_basecamp,
 	retract(checkGym(_)),
-	asserta(checkGym(0)),!.
+	asserta(checkGym(0)),
+	retract(cave(_,_)),
+	asserta(cave(4,4)),
+	retract(vs_legend),!.
 
 call_legendary:-
 	checkStart(1),
 	legendary_to_beat(Z),
 	Z =:= 1,
 	M = 'Legendary AzureSharkmon',
+	asserta(vs_legend),
 	battle(M),nl,
-	dialog3,
+	dialog3,balik_basecamp,
+	retract(cave(_,_)),
+	asserta(cave(18,17)),
+	retract(vs_legend),
 	win,!.
 
 	

@@ -15,7 +15,9 @@
 		in_battle/1,
 		monsta_out/1,
 		special_out/1,
-		legendary_to_beat/1
+		legendary_to_beat/1,
+		cave/2,
+		vs_legend/0
 		).
 
 
@@ -50,6 +52,7 @@
 checkStart(0).
 checkGym(0).
 legendary_to_beat(3).
+cave(18,17).
 %% Initial value
 in_battle(0).
 monsta_out(0).
@@ -64,6 +67,7 @@ numItems(1).
 /* Player starting position */
 %% player current position, initial : (11,3)
 letak_player(18,16).
+
 
 /* Player First Monsta*/
 list_monsta(['Dragonflymon','Draugrmon','Cobramon','MantaRaymon','Undinemon']).
@@ -117,13 +121,6 @@ susuKmenC(0).
 %% player_bag([]).
 %% Dummy Bag Items
 player_bag([whiteLilyPerfume]).
-
-/* Map size */
-edge([1,11],[1,11]). %Map size;
-edgeOffset([X1,X2],[Y1,Y2]) :- 
-	edge([XEdge1,XEdge2],[YEdge1,YEdge2]),
-	X1 is XEdge1-1, X2 is XEdge2+1,
-	Y1 is YEdge1-1, Y2 is YEdge2+1.
 
 /* Drop monsta */
 %% if only 1 monsta owned

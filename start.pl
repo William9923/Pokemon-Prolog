@@ -1,3 +1,4 @@
+inst(start).
 inst(quit).
 inst(help).
 inst(w).
@@ -16,7 +17,8 @@ inst(heal).
 /* Start Game Function */
 %% if game has already started
 start:- 
-	checkStart(1).
+	checkStart(1),
+	write('You have started the game.'),nl,!.
 
 start:-
 	checkStart(0),
@@ -48,10 +50,13 @@ user_in(X):-
 
 /* Prosedur Pemanggilan Menu Utama Games */
 start_commands:-
+	write('==================================================='),nl,
 	write(' _____             _          _ _ _         _   _ '),nl,
 	write('|     |___ ___ ___| |_ ___   | | | |___ ___| |_| |'),nl,
 	write('| | | | . |   |_ -|  _| . |  | | | | . |  _| | . |'),nl,
-	write('|_|_|_|___|_|_|___|_| |__,|  |_____|___|_| |_|___|'),nl,nl,
+	write('|_|_|_|___|_|_|___|_| |__,|  |_____|___|_| |_|___|'),
+	nl,
+	write('==================================================='),nl,nl,
 	write('Welcome to this monster battling games'),nl,
 	write('This is an adventure game, writen in prolog programming languange.'),nl.
 
@@ -85,7 +90,7 @@ help :-
 countdown(0):-
 	write('').
 countdown(X):-
-	write('...'),nl,
+	write('...'),
 	sleep(1),
 	X1 is X - 1,
 	countdown(X1).

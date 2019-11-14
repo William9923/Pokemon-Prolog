@@ -5,16 +5,22 @@ run :-
 	run_counter(1),
 	write('You cannot run from this match again this turn'),nl,!.
 
+%% when fighting legendary
+run :- 
+	vs_legend,
+	write('You are facing the divine monster. You felt that running away is not an option now'),nl,
+	fight,!.
+
 %% Run away chance before battle : 60 %
 run:-
 	in_battle(0),
 	random(1,11,X),
 	X < 7,
-	tab(3),write('Escape successful !'),nl,
+	write('Escape successful !'),nl,
 	!.
 run:-
 	in_battle(0),
-	tab(3),write('Escape unsuccessful !'),nl,
+	write('Escape unsuccessful !'),nl,
 	fight.
 
 %% run in the battle : successful rate 40%

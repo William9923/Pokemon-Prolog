@@ -29,7 +29,7 @@ use(whiteLilyPerfume) :-
                     retract(wlEffect(X)),
                     Xnew is X+4,
                     asserta(wlEffect(Xnew)),
-                    write('Bau harum menyerbak keluar dari tubuhmu'),!.
+                    write('A good smell wafts from your body '),!.
 /* 'A good smell wafts from your body ' */
 /*
 %use permenyuvi
