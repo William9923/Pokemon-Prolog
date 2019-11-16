@@ -32,72 +32,20 @@ bag:-
 bag :- 
 	player_bag(L),
 	write('Bags :'),nl,
-	printBag(L),nl.
+	printBag(L),
+	tab(3),whiteLilyPerfumeC(Y),write(Y),write('X'),nl.
 
 %% Basis bag kosong
 printBag([]):-
-	write('Tidak ada items di bag!'),nl,!.
+	write('No Items!'),nl,!.
 %% Basis bag 
 printBag([X]):-
-	write('-> '),write(X),!.
+	write('-> '),write(X),
+	!.
 printBag([X|T]):-
-	write('-> '),write(X),nl,
+	write('-> '),write(X),
 	printBag(T).
 
-/* Dropping items */
-drop(_):-
-	checkStart(0),
-	write('Game has not started. Type "start." to start the game'),nl,!.
-%% drop keyitems
-drop(I):- 
-	player_bag(Bag),
-	member(I,Bag),
-	keyitems(I),
-	write('Professor suddenly appear from the shadow!!!'),nl,
-	write('Do not drop this item.'),nl,
-	write('This item will be useful later on.'),nl,
-	write('Professor suddenly gone'),nl,!.
-%% drop inventory normal items
-drop(I):-
-	player_bag(Bag),
-	member(I,Bag),
-	letak_player(X,Y),
-	delItem(I),
-	asserta(letak_item(I,X,Y)),
-	format('Kamu menjatuhkan ~a.',[I]),
-	nl, !.
-%% drop barang yang tidak dimiliki
-drop(_):-
-	write('You do not have this item!.'),
-	nl, !.
-
-/* Picking items - Picking items in the ground */
-%% Jika game belum dijalankan
-take:-
-	checkStart(0),
-	write('Game has not started. Type "start." to start the game'),nl,!.
-%% buat yang ngecek jumlah items
-%% Jika bag penuh
-take:-
-	letak_player(X,Y),
-	letak_item(_,X,Y),
-	player_bag(_),
-	numItems(Z),
-	Z > 10,
-	write('Bag penuh!.'),nl,
-	!.
-%% Jika bag belum penuh
-take:-
-	letak_player(X,Y),
-	letak_item(I,X,Y),
-	retract(letak_item(I,X,Y)),
-	addBag(I),
-	format('Get ~a!!',[I]),nl,
-	!.
-%% Jika tidak ada item yang bisa diambil
-take:-
-	write('There are no items here.'),
-	nl. 
 
 
 

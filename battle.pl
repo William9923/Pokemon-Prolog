@@ -39,7 +39,6 @@ battle_command:-
 	write('> status.'),nl,
 	write('> list.'),nl,
 	write('> bag.'),nl,
-	write('> use(items).'),nl,
 	write('> run.'),nl.
 
 battle(_):-
@@ -145,10 +144,7 @@ fight:-
 	write(' -> '),
 	read(Ins), nl,
 	(monsta_out(1)->battle_user_in_third(Ins); battle_user_in_second(Ins)),
-	in_battle(0),!.
-
-
-
+	in_battle(0),!,next_turn,!.
 
 battle_text:-
 	write(' =========='),nl,

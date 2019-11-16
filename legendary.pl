@@ -55,10 +55,10 @@ balik_basecamp :-
 
 
 dialog1 :-
-	write('defeat 1'),nl.
+	write('Y---you are strong! But in order to find the answer, you have the other 3 legendary monsta'),nl.
 
 dialog2:-
-	write('defeat 2'),nl.
+	write('You have defeated me! I will give a piece of your memory. But remember, you will find the truth and it is not good!'),nl.
 
 dialog3:-
-	write('defeat 3'),nl.
+	write('You are strong. Really strong. Now I will give all my power and PLEASE DEFEAT SUGIONO!'),nl.

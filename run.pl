@@ -11,11 +11,11 @@ run :-
 	write('You are facing the divine monster. You felt that running away is not an option now'),nl,
 	fight,!.
 
-%% Run away chance before battle : 60 %
+%% Run away chance before battle : 70 %
 run:-
 	in_battle(0),
 	random(1,11,X),
-	X < 7,
+	X < 8,
 	write('Escape successful !'),nl,
 	!.
 run:-
@@ -29,7 +29,7 @@ run :-
 	in_battle(1),
 	random(1,11,X),
 	X < 5,
-	tab(3),write('Escape successful'),nl,
+	write('Escape successful'),nl,
 	retract(run_counter(_)),
 	asserta(run_counter(0)),
 	retract(enemy_monsta(M)),
@@ -42,7 +42,7 @@ run :-
 %% run in battle, unsuccessful.
 run :-
 	in_battle(1),
-	tab(3),write('Escape unsuccessful!'),nl,
+	write('Escape unsuccessful!'),nl,
 	retract(run_counter(_)),
 	asserta(run_counter(1)),
 	fight,!.

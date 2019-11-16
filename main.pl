@@ -1,5 +1,5 @@
 %% ini dynamic siapa yang rubah, gw bunuh lu pada ngehe!!
-:- dynamic(letak_item/3, 
+:- dynamic( 
 		letak_player/2,
 		list_monsta/1,
 		monsta_owned/1,
@@ -17,7 +17,8 @@
 		special_out/1,
 		legendary_to_beat/1,
 		cave/2,
-		vs_legend/0
+		vs_legend/0,
+		whiteLilyPerfumeC/1,wlEffect/1
 		).
 
 
@@ -40,10 +41,13 @@
 :- include(use).
 :- include(affinity).
 :- include(legendary).
+:- include(saveload).
 
 
 :- initialization(nl).
 :- initialization(write('Type "start." to start the game!')).
+:- initialization(nl).
+:- initialization(write('Use load_game(filename.pl) to load previous saved game data!')).
 :- initialization(nl).
 /* 'Type "start" to begin' */
 
@@ -60,7 +64,7 @@ special_out(0).
 enemy_monsta('').
 enemy_monsta_health('',0).
 curr_monsta('').
-numMonsta(5).
+numMonsta(1).
 numItems(1).
 
 
@@ -70,52 +74,18 @@ letak_player(18,16).
 
 
 /* Player First Monsta*/
-list_monsta(['Dragonflymon','Draugrmon','Cobramon','MantaRaymon','Undinemon']).
+list_monsta(['Dragonflymon']).
 monsta_owned('Dragonflymon').
-monsta_owned('Draugrmon').
-monsta_owned('Cobramon').
-monsta_owned('MantaRaymon').
-monsta_owned('Undinemon').
 monsta_owned_health('Dragonflymon',150).
-monsta_owned_health('Draugrmon',250).
-monsta_owned_health('Cobramon',200).
-monsta_owned_health('MantaRaymon',100).
-monsta_owned_health('Undinemon',100).
-
 %% gym location : (8,5)
 gym(8,5).
 
 /* Dummy Items */
-letak_item(panadol, 3 ,3).
-letak_item(minimap, 5,5).
-letak_item(monstaCage_S, 1 ,11).
-letak_item(whiteLilyperfume, 6,10).
-letak_item(permenyuvi,3,11).
-letak_item(panahApatis,1,4).
-letak_item(sugionoBalls,11,11).
-letak_item(snickaxs,7,5).
-letak_item(pilSemangatTerbaik,8,1).
-letak_item(susuKmen,10,1).
-
-items(monstaCage_S).
 items(whiteLilyPerfume).
-items(permenyuvi).
-items(panahApatis).
-items(sugionoBalls).
-items(snickaxs).
-items(pilSemangatTerbaik).
-items(susuKmen).
-
 
 /* initializing items and count item */
-monstaCage_S(0).
-whiteLilyPerfumeC(100).
-permenyuviC(0).
-panahApatisC(0).
-sugionoBallsC(0).
-snickaxsC(0).
-pilSemangatTerbaikC(0).
-susuKmenC(0).
+
+whiteLilyPerfumeC(10).
 
 /* Bag Items */
 %% player_bag([]).
@@ -124,15 +94,15 @@ player_bag([whiteLilyPerfume]).
 
 /* Drop monsta */
 %% if only 1 monsta owned
-drop_monsta(_) :-
+drop(_) :-
 	numMonsta(1),
 	write('You cannot release your last monsta.'),nl,!.
 %% do not have that monsta
-drop_monsta(M):-
+drop(M):-
 	\+monsta_owned(M),
 	write('You do not have that monsta.'),nl,!.
 %% bisa delete monsta
-drop_monsta(M):-
+drop(M):-
 	format('You have release ~a',[M]),nl,
 	list_monsta(L),
 	numMonsta(X),
@@ -184,9 +154,9 @@ quit:-
 	asserta(checkStart(0)),
 	write('You have quitted from the monsta great world.'),nl,
 	write('Welcome to the normal world again'), nl,
-    !.
+	load_internal('default.pl'),!.
 quit:- 
-	write('Game belum dimulai. Ketik "start." untuk memulai game.'),nl.
+	write('The game has not even started yet, type "start" to begin'),nl.
 /* 'You have left the great MonstaWorld' */
 /* 'Welcome back to regular reality' */
 

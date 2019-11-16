@@ -413,9 +413,6 @@ printOneTile(X,Y) :-    % block
 printOneTile(X,Y) :-    % player
     letak_player(X,Y),
     write('P'), !.
-printOneTile(X,Y) :-    % player
-    letak_item(_,X,Y),
-    write('I'), !.
 printOneTile(X,Y) :-    % forest
     terrain(forest,X,Y),
     write('^'), !.
@@ -436,7 +433,7 @@ printOneTile(X,Y) :-    % mountain
     write('M'), !.
 printOneTile(X,Y) :-    % lava
     terrain(lava,X,Y),
-    write('L'), !.
+    write('!'), !.
 printOneTile(_,_) :-    %inaccessible
     write('X').
 /***********************************/

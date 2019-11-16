@@ -35,7 +35,7 @@ status :-
 	printStatus(L),
 	bag,
 	legendary_to_beat(X),
-	write('Legendary Monsta to beat : '), write(X), nl.
+	write('Legendary Monsta to beat : '), write(X), nl,!.
 
 list :-
 	in_battle(1),

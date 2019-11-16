@@ -6,13 +6,13 @@ inst(s).
 inst(d).
 inst(a).
 inst(map).
-inst(take).
 inst(drop(_)).
 inst(drop_monsta(_)).
 inst(use(_)).
 inst(status).
 inst(bag).
 inst(heal).
+inst(save_game(_)).
 
 /* Start Game Function */
 %% if game has already started
@@ -24,7 +24,7 @@ start:-
 	checkStart(0),
 	retract(checkStart(0)),
 	asserta(checkStart(1)),
-	start_story,
+	%%start_story,
 	start_commands, nl,
 	help, nl, nl,
 	start_menu.
@@ -68,9 +68,8 @@ help :-
 	write(' quit.                       : to exit from the game.'),nl,
 	write(' w.,s.,a.,d.                 : to move player based on the wind direction.'),nl,
 	write(' map.                        : to print the map of MonstaWorld'),nl,
-	write(' take.                       : to take items in the floor'),nl,
-	write(' drop_monsta(monsta)         : to release monsta back to their world.'),nl,
-	write(' drop(item).                 : to drop certain items.'),nl,
+	write(' save_game(filename).        : to save the game'),nl,
+	write(' drop(monsta)                : to release monsta back to their world.'),nl,
 	write(' use(item).                  : to use items in your bag.'),nl,
 	write(' bag.                        : to see all items in player bag.'),nl,
 	write(' status.                     : to see status of player.'),nl,
@@ -79,13 +78,15 @@ help :-
     write('Player     : P'), nl,
     write('Home       : H'), nl,
 	write('Gym        : G'), nl,
-    write('Item       : I'), nl,
     write('Cave       : C'), nl,
     write('River      : ~'), nl,
     write('Forest     : ^'), nl,
     write('Wasteland  : _'), nl,
     write('Grassfield : v'), nl,
-    write('Dessert    : .'), nl.
+    write('Dessert    : .'), nl,
+    write('Lava       : !'),nl,
+    write('Mountain   : M'),nl,
+    write('Fence      : X'),nl.
 
 countdown(0):-
 	write('').
