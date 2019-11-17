@@ -59,5 +59,6 @@ capture_user_in(X):-
 
 capture_menu(M):-
 	asserta(enemy_monsta(M)),
-	format('~a faints! Do you want to capture ~a? (capture/0 to capture ~a, otherwise use any other key.)',[M,M,M]),nl,
+	format(' ~a faints! Do you want to capture ~a?',[M,M]),nl,
+	format(' (capture/0 to capture ~a, otherwise use any other key.)',[M]),nl,
 	write('->'),read(X),capture_user_in(X).
