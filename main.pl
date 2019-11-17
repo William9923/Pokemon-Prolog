@@ -68,7 +68,7 @@ numItems(1).
 
 /* Player starting position */
 %% player current position, initial : (11,3)
-letak_player(18,16).
+letak_player(10,10).
 
 
 /* Player First Monsta*/
@@ -157,7 +157,7 @@ list :-
 	in_battle(1),
 	monsta_out(1),
 	list_monsta(L),
-	write('Monsta List:'),
+	write('Monsta List:'),nl,
 	printStatus(L),nl,!.
 	
 printStatus([]).

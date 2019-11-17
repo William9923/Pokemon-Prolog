@@ -1,6 +1,8 @@
 %% run before fight 
 %% Too much run 
 %% Current run prohibited per turn : 1 run
+:-dynamic( endRun/0 ).
+
 run :-
 	run_counter(1),
 	write('You cannot run from this match again this turn'),nl,!.
@@ -17,6 +19,7 @@ run:-
 	random(1,11,X),
 	X < 8,
 	write('Escape successful !'),nl,
+	asserta(endRun),
 	!.
 run:-
 	in_battle(0),
@@ -38,7 +41,8 @@ run :-
 	asserta(enemy_monsta_health('',0)),
 	retract(curr_monsta(_)),
 	asserta(curr_monsta('')),
-	end_battle,!.
+	end_battle,
+	asserta(endRun),!.
 %% run in battle, unsuccessful.
 run :-
 	in_battle(1),
@@ -46,3 +50,9 @@ run :-
 	retract(run_counter(_)),
 	asserta(run_counter(1)),
 	fight,!.
+
+end_battle :-
+	retract(monsta_out(_)),
+	asserta(monsta_out(0)),
+	retract(in_battle(_)),
+	asserta(in_battle(0)).

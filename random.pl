@@ -9,7 +9,7 @@ randomizer(Result) :-
 	terrain(desert,X,Y),
 	M = 'Armadillomon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -18,7 +18,7 @@ randomizer(Result) :-
 	terrain(desert,X,Y),
 	M = 'GiantWormmon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -27,7 +27,7 @@ randomizer(Result) :-
 	terrain(desert,X,Y),
 	M = 'Golemon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -36,7 +36,7 @@ randomizer(Result) :-
 	terrain(desert,X,Y),
 	M = 'Gnomemon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 /******************************************************/
 /*randomizer(Result) for forest*/
@@ -46,7 +46,7 @@ randomizer(Result) :-
 	terrain(forest,X,Y),
 	M = 'Cactusmon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -56,7 +56,7 @@ randomizer(Result) :-
 	terrain(forest,X,Y),
 	M = 'Willowmon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -66,7 +66,7 @@ randomizer(Result) :-
 	terrain(forest,X,Y),
 	M = 'Vinemon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -76,7 +76,7 @@ randomizer(Result) :-
 	terrain(forest,X,Y),
 	M = 'Dryadmon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 /******************************************************/
 /*randomizer(Result) for wasteland*/
@@ -86,7 +86,7 @@ randomizer(Result) :-
 	terrain(wasteland,X,Y),
 	M = 'Spectermon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -96,7 +96,7 @@ randomizer(Result) :-
 	terrain(wasteland,X,Y),
 	M = 'Bansheemon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -106,7 +106,7 @@ randomizer(Result) :-
 	terrain(wasteland,X,Y),
 	M = 'Draugrmon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -116,7 +116,7 @@ randomizer(Result) :-
 	terrain(wasteland,X,Y),
 	M = 'GrimmHoundmon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 /******************************************************/
 /*randomizer(Result) for grassland*/
@@ -126,7 +126,7 @@ randomizer(Result) :-
 	terrain(grassland,X,Y),
 	M = 'MantaRaymon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -136,7 +136,7 @@ randomizer(Result) :-
 	terrain(grassland,X,Y),
 	M = 'GatorGatorGatormon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -146,7 +146,7 @@ randomizer(Result) :-
 	terrain(grassland,X,Y),
 	M = 'Orcamon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -156,7 +156,7 @@ randomizer(Result) :-
 	terrain(grassland,X,Y),
 	M = 'Undinemon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.	
 /******************************************************/
 /*randomizer(Result) for mountain*/
@@ -166,7 +166,7 @@ randomizer(Result) :-
 	terrain(mountain,X,Y),
 	M = 'Dragonflymon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -176,7 +176,7 @@ randomizer(Result) :-
 	terrain(mountain,X,Y),
 	M = 'Falconmon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -186,7 +186,7 @@ randomizer(Result) :-
 	terrain(mountain,X,Y),
 	M = 'GreatOwlmon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -196,7 +196,7 @@ randomizer(Result) :-
 	terrain(mountain,X,Y),
 	M = 'Slyphmon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 /******************************************************/
 /*randomizer(Result) for lava*/
@@ -206,7 +206,7 @@ randomizer(Result) :-
 	terrain(lava,X,Y),
 	M = 'Cobramon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -216,7 +216,7 @@ randomizer(Result) :-
 	terrain(lava,X,Y),
 	M = 'KomodoDragonmon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 
 randomizer(Result) :-
@@ -226,7 +226,7 @@ randomizer(Result) :-
 	terrain(lava,X,Y),
 	M = 'Magmamon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 	
 randomizer(Result) :-
@@ -236,7 +236,7 @@ randomizer(Result) :-
 	terrain(lava,X,Y),
 	M = 'Salamandermon',
 	battle(M),
-	capture_menu(M),
+	(endRun->retract(endRun);capture_menu(M)),
 	!.
 /******************************************************/
 /*randomizer(Result) safely*/
