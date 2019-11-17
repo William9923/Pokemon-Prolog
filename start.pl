@@ -24,7 +24,7 @@ start:-
 	checkStart(0),
 	retract(checkStart(0)),
 	asserta(checkStart(1)),
-	%%start_story,
+	start_story,
 	start_commands, nl,
 	help, nl,
 	start_menu.
