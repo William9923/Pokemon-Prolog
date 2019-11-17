@@ -8,6 +8,7 @@ call_legendary:-
 	M = 'Legendary GreatForestmon',
 	asserta(vs_legend),
 	battle(M),nl,
+	capture_menu(M),
 	dialog1,balik_basecamp,
 	retract(checkGym(_)),
 	asserta(checkGym(0)),
@@ -22,11 +23,12 @@ call_legendary:-
 	M = 'Legendary CrimsonDragonmon',
 	asserta(vs_legend),
 	battle(M),nl,
+	capture_menu(M),
 	dialog2,balik_basecamp,
 	retract(checkGym(_)),
 	asserta(checkGym(0)),
 	retract(cave(_,_)),
-	asserta(cave(4,4)),
+	asserta(cave(10,7)),
 	retract(vs_legend),!.
 
 call_legendary:-
@@ -36,9 +38,10 @@ call_legendary:-
 	M = 'Legendary AzureSharkmon',
 	asserta(vs_legend),
 	battle(M),nl,
+	capture_menu(M),
 	dialog3,balik_basecamp,
 	retract(cave(_,_)),
-	asserta(cave(18,17)),
+	asserta(cave(11,14)),
 	retract(vs_legend),
 	win,!.
 

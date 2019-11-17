@@ -45,7 +45,7 @@ loop_write(Stream) :-
 
 loop_write(Stream) :-
 	numMonsta(X),
-	write(Stream, numMonsta(X)), write(Stream, numMonsta(X)),
+	write(Stream, numMonsta(X)), write(Stream, '.'),
 	nl(Stream),
 	fail.
 

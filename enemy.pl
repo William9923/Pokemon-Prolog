@@ -35,7 +35,5 @@ enemy_attack :-
 
 %% for applying next turn condition
 next_turn:-
-	retract(capture_counter(_)),
 	retract(run_counter(_)),
-	asserta(capture_counter(0)),
 	asserta(run_counter(0)).

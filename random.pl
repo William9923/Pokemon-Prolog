@@ -8,28 +8,36 @@ randomizer(Result) :-
 	Result < 48,
 	terrain(desert,X,Y),
 	M = 'Armadillomon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 48,
 	Result < 96,
 	terrain(desert,X,Y),
 	M = 'GiantWormmon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 96,
 	Result < 144,
 	terrain(desert,X,Y),
 	M = 'Golemon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 randomizer(Result) :-
 	letak_player(X,Y),
 	Result >= 144,
 	Result < 192,
 	terrain(desert,X,Y),
 	M = 'Gnomemon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 /******************************************************/
 /*randomizer(Result) for forest*/
 randomizer(Result) :-
@@ -37,7 +45,9 @@ randomizer(Result) :-
 	Result < 48,
 	terrain(forest,X,Y),
 	M = 'Cactusmon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -45,7 +55,9 @@ randomizer(Result) :-
 	Result < 96,
 	terrain(forest,X,Y),
 	M = 'Willowmon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -53,7 +65,9 @@ randomizer(Result) :-
 	Result < 144,
 	terrain(forest,X,Y),
 	M = 'Vinemon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -61,7 +75,9 @@ randomizer(Result) :-
 	Result < 180,
 	terrain(forest,X,Y),
 	M = 'Dryadmon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 /******************************************************/
 /*randomizer(Result) for wasteland*/
 randomizer(Result) :-
@@ -69,7 +85,9 @@ randomizer(Result) :-
 	Result < 48,
 	terrain(wasteland,X,Y),
 	M = 'Spectermon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -77,7 +95,9 @@ randomizer(Result) :-
 	Result < 96,
 	terrain(wasteland,X,Y),
 	M = 'Bansheemon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -85,7 +105,9 @@ randomizer(Result) :-
 	Result < 144,
 	terrain(wasteland,X,Y),
 	M = 'Draugrmon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -93,7 +115,9 @@ randomizer(Result) :-
 	Result < 192,
 	terrain(wasteland,X,Y),
 	M = 'GrimmHoundmon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 /******************************************************/
 /*randomizer(Result) for grassland*/
 randomizer(Result) :-
@@ -101,7 +125,9 @@ randomizer(Result) :-
 	Result < 48,
 	terrain(grassland,X,Y),
 	M = 'MantaRaymon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -109,7 +135,9 @@ randomizer(Result) :-
 	Result < 96,
 	terrain(grassland,X,Y),
 	M = 'GatorGatorGatormon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -117,7 +145,9 @@ randomizer(Result) :-
 	Result < 144,
 	terrain(grassland,X,Y),
 	M = 'Orcamon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -125,7 +155,9 @@ randomizer(Result) :-
 	Result < 180,
 	terrain(grassland,X,Y),
 	M = 'Undinemon',
-	battle(M),nl,!.	
+	battle(M),
+	capture_menu(M),
+	!.	
 /******************************************************/
 /*randomizer(Result) for mountain*/
 randomizer(Result) :-
@@ -133,7 +165,9 @@ randomizer(Result) :-
 	Result < 48,
 	terrain(mountain,X,Y),
 	M = 'Dragonflymon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -141,7 +175,9 @@ randomizer(Result) :-
 	Result < 96,
 	terrain(mountain,X,Y),
 	M = 'Falconmon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -149,7 +185,9 @@ randomizer(Result) :-
 	Result < 144,
 	terrain(mountain,X,Y),
 	M = 'GreatOwlmon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -157,7 +195,9 @@ randomizer(Result) :-
 	Result < 180,
 	terrain(mountain,X,Y),
 	M = 'Slyphmon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 /******************************************************/
 /*randomizer(Result) for lava*/
 randomizer(Result) :-
@@ -165,7 +205,9 @@ randomizer(Result) :-
 	Result < 48,
 	terrain(lava,X,Y),
 	M = 'Cobramon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -173,7 +215,9 @@ randomizer(Result) :-
 	Result < 96,
 	terrain(lava,X,Y),
 	M = 'KomodoDragonmon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -181,7 +225,9 @@ randomizer(Result) :-
 	Result < 144,
 	terrain(lava,X,Y),
 	M = 'Magmamon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 	
 randomizer(Result) :-
 	letak_player(X,Y),
@@ -189,11 +235,13 @@ randomizer(Result) :-
 	Result < 180,
 	terrain(lava,X,Y),
 	M = 'Salamandermon',
-	battle(M),nl,!.
+	battle(M),
+	capture_menu(M),
+	!.
 /******************************************************/
 /*randomizer(Result) safely*/
 randomizer(Result) :-
 	Result >= 192,
 	letak_player(X,Y),
 	terrain(_,X,Y),
-	write('You have traveled safely.'),nl, !.
+	write('You have traveled safely.'),!.

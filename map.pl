@@ -160,9 +160,9 @@ terrain(grassland, 16 , 12 ).
 terrain(grassland, 17 , 12 ).
 terrain(grassland, 18 , 12 ).
 terrain(wasteland, 19 , 12 ).
-terrain(item, 1 , 11 ).
+terrain(wasteland, 1 , 11 ).
 terrain(grassland, 2 , 11 ).
-terrain(item, 3 , 11 ).
+terrain(grassland, 3 , 11 ).
 terrain(forest, 4 , 11 ).
 terrain(forest, 5 , 11 ).
 terrain(forest, 6 , 11 ).
@@ -170,7 +170,7 @@ terrain(grassland, 7 , 11 ).
 terrain(grassland, 8 , 11 ).
 terrain(river, 9 , 11 ).
 terrain(grassland, 10 , 11 ).
-terrain(item, 11 , 11 ).
+terrain(grassland, 11 , 11 ).
 terrain(grassland, 12 , 11 ).
 terrain(grassland, 13 , 11 ).
 terrain(grassland, 14 , 11 ).
@@ -184,7 +184,7 @@ terrain(forest, 2 , 10 ).
 terrain(forest, 3 , 10 ).
 terrain(forest, 4 , 10 ).
 terrain(forest, 5 , 10 ).
-terrain(item, 6 , 10 ).
+terrain(forest, 6 , 10 ).
 terrain(grassland, 7 , 10 ).
 terrain(river, 8 , 10 ).
 terrain(grassland, 9 , 10 ).
@@ -278,9 +278,9 @@ terrain(forest, 1 , 5 ).
 terrain(forest, 2 , 5 ).
 terrain(forest, 3 , 5 ).
 terrain(forest, 4 , 5 ).
-terrain(item, 5 , 5 ).
+terrain(forest, 5 , 5 ).
 terrain(forest, 6 , 5 ).
-terrain(item, 7 , 5 ).
+terrain(forest, 7 , 5 ).
 terrain(forest, 8 , 5 ).
 terrain(grassland, 9 , 5 ).
 terrain(grassland, 10 , 5 ).
@@ -293,7 +293,7 @@ terrain(wasteland, 16 , 5 ).
 terrain(wasteland, 17 , 5 ).
 terrain(wasteland, 18 , 5 ).
 terrain(wasteland, 19 , 5 ).
-terrain(item, 1 , 4 ).
+terrain(forest, 1 , 4 ).
 terrain(forest, 2 , 4 ).
 terrain(forest, 3 , 4 ).
 terrain(forest, 4 , 4 ).
@@ -314,7 +314,7 @@ terrain(grassland, 18 , 4 ).
 terrain(wasteland, 19 , 4 ).
 terrain(forest, 1 , 3 ).
 terrain(forest, 2 , 3 ).
-terrain(item, 3 , 3 ).
+terrain(forest, 3 , 3 ).
 terrain(forest, 4 , 3 ).
 terrain(forest, 5 , 3 ).
 terrain(forest, 6 , 3 ).
@@ -357,9 +357,9 @@ terrain(forest, 4 , 1 ).
 terrain(forest, 5 , 1 ).
 terrain(river, 6 , 1 ).
 terrain(forest, 7 , 1 ).
-terrain(item, 8 , 1 ).
+terrain(grassland, 8 , 1 ).
 terrain(grassland, 9 , 1 ).
-terrain(item, 10 , 1 ).
+terrain(grassland, 10 , 1 ).
 terrain(grassland, 11 , 1 ).
 terrain(grassland, 12 , 1 ).
 terrain(grassland, 13 , 1 ).

@@ -1,11 +1,9 @@
 :-dynamic(
-	run_counter/1,
-	capture_counter/1
+	run_counter/1
 	).
 
 %% initial value
 run_counter(0).
-capture_counter(0).
 
 /* Battle Consists of:
 	1. fight / run
@@ -20,10 +18,6 @@ battle_inst_second(pick(_)).
 %% Third phase instruction
 battle_inst_third(attack).
 battle_inst_third(special_attack).
-battle_inst_third(capture).
-battle_inst_third(use(_)).
-battle_inst_third(use(_,_)).
-battle_inst_third(bag).
 battle_inst_third(run).
 battle_inst_third(status).
 battle_inst_third(pick(_)).
@@ -35,10 +29,8 @@ battle_command:-
 	write('> attack.'),nl,
 	write('> special_attack.'),nl,
 	write('> pick(X).'),nl,
-	write('> capture.'),nl,
 	write('> status.'),nl,
 	write('> list.'),nl,
-	write('> bag.'),nl,
 	write('> run.'),nl.
 
 battle(_):-

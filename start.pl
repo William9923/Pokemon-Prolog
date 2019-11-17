@@ -26,7 +26,7 @@ start:-
 	asserta(checkStart(1)),
 	%%start_story,
 	start_commands, nl,
-	help, nl, nl,
+	help, nl,
 	start_menu.
 	
 %% Basic game menu
@@ -73,7 +73,7 @@ help :-
 	write(' use(item).                  : to use items in your bag.'),nl,
 	write(' bag.                        : to see all items in player bag.'),nl,
 	write(' status.                     : to see status of player.'),nl,
-	nl,nl,
+	nl,
 	write('Legends:'), nl,
     write('Player     : P'), nl,
     write('Home       : H'), nl,
