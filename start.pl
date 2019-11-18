@@ -70,6 +70,7 @@ help :-
 	write(' w.,s.,a.,d.                 : to move player based on the wind direction.'),nl,
 	write(' map.                        : to print the map of MonstaWorld'),nl,
 	write(' save_game(filename).        : to save the game'),nl,
+	write(' load_game(filename).        : to load the game'),nl,
 	write(' drop(monsta)                : to release monsta back to their world.'),nl,
 	write(' use(item).                  : to use items in your bag.'),nl,
 	write(' bag.                        : to see all items in player bag.'),nl,
