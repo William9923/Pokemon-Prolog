@@ -45,8 +45,6 @@
 :- initialization(nl).
 :- initialization(write('Type "start." to start the game!')).
 :- initialization(nl).
-:- initialization(write('Use load_game(filename.pl) to load previous saved game data!')).
-:- initialization(nl).
 /* 'Type "start" to begin' */
 
 

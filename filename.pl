@@ -1,0 +1,12 @@
+letak_player(10,9).
+legendary_to_beat(3).
+list_monsta([_76]).
+monsta_owned(_75).
+monsta_owned_health(_75,150).
+numMonsta(1).
+player_bag([whiteLilyPerfume]).
+whiteLilyPerfumeC(10).
+numItems(1).
+checkGym(0).
+cave(18,17).
+wlEffect(0).

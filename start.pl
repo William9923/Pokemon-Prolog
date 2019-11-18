@@ -13,6 +13,7 @@ inst(status).
 inst(bag).
 inst(heal).
 inst(save_game(_)).
+inst(load_game(_)).
 
 /* Start Game Function */
 %% if game has already started

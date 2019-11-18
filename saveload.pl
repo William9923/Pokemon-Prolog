@@ -91,8 +91,8 @@ loop_write(Stream) :-
 
 /* Load game */
 load_game(_):-
-	checkStart(1),
-	write('You have started the game. Quit the game first to load the game!'),nl,!.
+	checkStart(0),
+	write('You have not started the game. Start the game first to load the game!'),nl,!.
 
 load_game(File):-
 	load_internal(File),
